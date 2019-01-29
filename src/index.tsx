@@ -6,9 +6,9 @@ import { Provider } from 'react-redux';
 import { Route, Switch } from 'react-router';
 import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import logger from 'redux-logger';
-import '../node_modules/bootstrap/scss/bootstrap.scss';
 import { HomeScreen } from './screens/home.screen';
 import { ProfileScreen } from './screens/profile.screen';
+import './index.scss';
 
 // most important parat of router
 // this history will be syncronised with store
