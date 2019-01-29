@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { connect } from '../libs/connect';
 import { GoogleAuth } from '../libs/google/google-auth';
 
-
 const clientId = '165911054154-subm0j57ud22ntc7ifgp6eqncn6nqr11.apps.googleusercontent.com';
 const apiKey = 'AIzaSyDWUOjWhxsFuBl6oNF_4Q0ZsHnDQdXfuQE';
 
