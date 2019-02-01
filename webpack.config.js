@@ -1,54 +1,64 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
 
-module.exports = (env) => ({
-    mode: "development",
-    entry: "./src/index.tsx",
-    devtool: "inline-source-map",
-    output: {
-        filename: 'bundle.[hash].js',
-        path: __dirname + '/dist',
-        publicPath: '/'
-    },
-    resolve: {
-        extensions: [".ts", ".tsx", ".js", ".scss"]
-    },
-    module: {
-        rules: [
-            {
-                test: /\.(ts|tsx)?$/,
-                loader: "ts-loader",
-                options: {
-                    configFile: 'tsconfig.json'
+// const environment = require(`./env/${process.env || 'local'}.json`);
+
+module.exports = (env) => {
+    const environment = require(`./env/${env || 'local'}.json`);
+
+    return {
+        mode: environment.production ? "production" : "development",
+        entry: "./src/index.tsx",
+        devtool: environment.production ? "source-map" : "inline-source-map",
+        output: {
+            filename: 'bundle.[hash].js',
+            path: __dirname + '/dist',
+            publicPath: '/'
+        },
+        resolve: {
+            extensions: [".ts", ".tsx", ".js", ".scss"]
+        },
+        module: {
+            rules: [
+                {
+                    test: /\.(ts|tsx)?$/,
+                    loader: "ts-loader",
+                    options: {
+                        configFile: 'tsconfig.json'
+                    }
+                },
+                {
+                    test: /\.(svg|png|woff|woff2|ttf)$/,
+                    loader: 'url-loader'
+                },
+                {
+                    test: /\.(scss|css)$/,
+                    use: [
+                        {loader: "style-loader"},
+                        {loader: "css-loader"},
+                        {loader: "sass-loader"}
+                    ]
                 }
-            },
-            {
-                test: /\.svg$/,
-                loader: 'url-loader'
-            },
-            {
-                test: /\.scss$/,
-                use: [
-                    {loader: "style-loader"},
-                    {loader: "css-loader"},
-                    {loader: "sass-loader"}
-                ]
-            }
+            ]
+        },
+        devServer: {
+            historyApiFallback: true,
+            contentBase: [
+                __dirname + '/dist/'
+            ],
+            compress: true,
+            host: 'localhost',
+            port: 3032,
+            open: true
+        },
+        plugins: [
+            new HtmlWebpackPlugin({
+                filename: 'index.html',
+                template: __dirname + '/src/index.html'
+            }),
+            new webpack.DefinePlugin({
+                'process.env': JSON.stringify(environment)
+            })
         ]
-    },
-    devServer: {
-        historyApiFallback: true,
-        contentBase: [
-            __dirname + '/dist/'
-        ],
-        compress: true,
-        host: 'localhost',
-        port: 3032,
-        open: true
-    },
-    plugins: [
-        new HtmlWebpackPlugin({
-            filename: 'index.html',
-            template: __dirname + '/src/index.html'
-        })
-    ]
-});
+    };
+};
