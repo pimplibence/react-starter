@@ -54,7 +54,8 @@ module.exports = (env) => {
         plugins: [
             new HtmlWebpackPlugin({
                 filename: 'index.html',
-                template: __dirname + '/src/index.html'
+                template: __dirname + '/src/index.html',
+                title: environment.title
             }),
             new webpack.DefinePlugin({
                 'process.env': JSON.stringify(environment)

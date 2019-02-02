@@ -1,4 +1,5 @@
 {
+  "title": "React Example [LOCAL]",
   "env": "prod",
   "production": true
 }
