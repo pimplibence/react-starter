@@ -16,3 +16,11 @@ $ yarn start --env=local
 $ yarn build # local environment
 $ yarn build --env=local
 ```
+
+# Lint Code
+```bash
+# See tslint.json
+yarn lint
+```
+- if you are using webstorm, you can import Project.xml file, that support tslint.json friendly code-formatting
+
