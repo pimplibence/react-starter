@@ -1,7 +1,6 @@
 {
   "dependencies": {
     "@types/history": "^4.7.2",
-    "@types/lodash": "^4.14.119",
     "@types/node": "^10.12.18",
     "@types/react": "^16.7.20",
     "@types/react-dom": "^16.0.11",
@@ -14,7 +13,6 @@
     "css-loader": "^2.1.0",
     "history": "^4.7.2",
     "html-webpack-plugin": "^3.2.0",
-    "lodash": "^4.17.11",
     "node": "^11.8.0",
     "node-sass": "^4.11.0",
     "react": "^16.7.0",
