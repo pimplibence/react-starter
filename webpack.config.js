@@ -1,8 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 
-// const environment = require(`./env/${process.env || 'local'}.json`);
-
 module.exports = (env) => {
     const environment = require(`./env/${env || 'local'}.json`);
 
