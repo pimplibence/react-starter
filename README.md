@@ -22,5 +22,5 @@ $ yarn build --env=local
 # See tslint.json
 yarn lint
 ```
-- if you are using webstorm, you can import Project.xml file, that support tslint.json friendly code-formatting
+- if you are using webstorm, you can import Project.xml file, that supports tslint.json friendly code-formatting
 
