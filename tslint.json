@@ -22,6 +22,7 @@
     "align": false,
     "jsx-no-lambda": false,
     "jsx-no-bind": true,
+    "object-literal-shorthand": false,
     "indent": [
       true,
       "spaces",

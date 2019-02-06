@@ -6,20 +6,26 @@ import { Provider } from 'react-redux';
 import { Route, Switch } from 'react-router';
 import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import reduxLogger from 'redux-logger';
+import thunk from 'redux-thunk';
 import './index.scss';
+import { RedditRepository } from './repositories/reddit.repository';
 import { HomeScreen } from './screens/home.screen';
 
 const root$ = document.getElementById('application');
 const history = createBrowserHistory();
 
 const reducers = {
-    router: connectRouter(history)
+    repository: combineReducers({
+        reddit: RedditRepository.getReducer()
+    }),
+    router: connectRouter(history),
 };
 
 const store = createStore(
     combineReducers(reducers),
     compose(
         applyMiddleware(routerMiddleware(history)),
+        applyMiddleware(thunk),
         applyMiddleware(reduxLogger)
     )
 );
