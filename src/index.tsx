@@ -7,7 +7,7 @@ import { Route, Switch } from 'react-router';
 import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import reduxLogger from 'redux-logger';
 import './index.scss';
-import { HomeScreen } from './screens/home.screen';
+import { UikitScreen } from './screens/uikit.screen';
 
 const root$ = document.getElementById('application');
 const history = createBrowserHistory();
@@ -27,7 +27,7 @@ const store = createStore(
 ReactDOM.render(<Provider store={store}>
     <ConnectedRouter history={history}>
         <Switch>
-            <Route path={'/'} exact={true} component={HomeScreen}/>
+            <Route path={'/uikit'} exact={true} component={UikitScreen}/>
         </Switch>
     </ConnectedRouter>
 </Provider>, root$);

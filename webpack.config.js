@@ -14,7 +14,7 @@ module.exports = (env) => {
             publicPath: '/'
         },
         resolve: {
-            extensions: [".ts", ".tsx", ".js", ".scss"]
+            extensions: [".ts", ".tsx", ".js", ".styles"]
         },
         module: {
             rules: [
