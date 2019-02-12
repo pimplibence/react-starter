@@ -18,3 +18,17 @@ $typography: (
     span: ($base-font-size, 0, 1, inline-block),
     small: ($base-font-size * .67, 0, 1, inline-block),
 );
+
+// <name>: (<suffix>, <prefix>, <minimum-width>, <maximum-width>)
+
+$mediaRanges: (
+    minimum: ('', '', 0px),
+    small: ('-sm', 'sm-', 576px),
+    medium: ('-md', 'md-', 768px),
+    large: ('-lg', 'lg-', 992px),
+    extraLarge: ('-xl', 'xl-', 1200px)
+);
+
+$columnRanges: (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
+
+$base-padding: 15px;

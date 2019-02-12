@@ -20,6 +20,40 @@ export class UikitScreen extends React.Component<any, any> {
             <span>Span Text</span>
             <small>Small Text</small>
 
+            <div className="col-12 text-center dz">12</div>
+
+            <div className="col-6 text-center dz">6</div>
+            <div className="col-6 text-center dz">6</div>
+
+            <div className="col-4 text-center dz">4</div>
+            <div className="col-4 text-center dz">4</div>
+            <div className="col-4 text-center dz">4</div>
+
+            <div className="col-3 text-center dz">3</div>
+            <div className="col-3 text-center dz">3</div>
+            <div className="col-3 text-center dz">3</div>
+            <div className="col-3 text-center dz">3</div>
+
+            <div className="col-2 text-center dz">2</div>
+            <div className="col-2 text-center dz">2</div>
+            <div className="col-2 text-center dz">2</div>
+            <div className="col-2 text-center dz">2</div>
+            <div className="col-2 text-center dz">2</div>
+            <div className="col-2 text-center dz">2</div>
+
+            <div className="col-1 text-center dz">1</div>
+            <div className="col-1 text-center dz">1</div>
+            <div className="col-1 text-center dz">1</div>
+            <div className="col-1 text-center dz">1</div>
+            <div className="col-1 text-center dz">1</div>
+            <div className="col-1 text-center dz">1</div>
+            <div className="col-1 text-center dz">1</div>
+            <div className="col-1 text-center dz">1</div>
+            <div className="col-1 text-center dz">1</div>
+            <div className="col-1 text-center dz">1</div>
+            <div className="col-1 text-center dz">1</div>
+            <div className="col-1 text-center dz">1</div>
+
         </div>;
     }
 }

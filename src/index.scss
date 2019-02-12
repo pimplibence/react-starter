@@ -1,2 +1,8 @@
 @import "styles/reset";
 @import "styles/typo";
+@import "styles/grid";
+
+.dz {
+    background: lighten(red, 40%);
+    border: .1px dotted red;
+}
