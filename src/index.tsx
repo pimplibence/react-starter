@@ -6,7 +6,6 @@ import { Provider } from 'react-redux';
 import { Route, Switch } from 'react-router';
 import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import reduxLogger from 'redux-logger';
-import './index.scss';
 import { UikitScreen } from './screens/uikit.screen';
 
 const root$ = document.getElementById('application');
