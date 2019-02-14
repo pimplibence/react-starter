@@ -1,3 +1,3 @@
 export interface FacebookAuthInterface {
-    appId: string;
+    appId: string | undefined;
 }

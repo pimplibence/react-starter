@@ -1,4 +1,4 @@
 export interface GoogleAuthInterface {
-    apiKey: string;
-    clientId: string;
+    apiKey: string | undefined;
+    clientId: string | undefined;
 }

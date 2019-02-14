@@ -1,8 +1,11 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
+const dotenv = require('dotenv');
 
-module.exports = (env) => {
-    const environment = require(`./env/${env || 'local'}.json`);
+module.exports = () => {
+    const environment = dotenv.config().parsed;
+
+    console.log(environment);
 
     return {
         mode: environment.production ? "production" : "development",
@@ -71,7 +74,7 @@ module.exports = (env) => {
             }),
             new webpack.DefinePlugin({
                 'process.env': JSON.stringify(environment)
-            })
+            }),
         ]
     };
 };

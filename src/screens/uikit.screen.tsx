@@ -8,21 +8,29 @@ export class UikitScreen extends React.Component<any, any> {
     private facebookAuth = new FacebookAuth();
 
     public async componentDidMount() {
-        await this.googleAuth.initialize({
-            apiKey: 'qHwORXY0R-PJ3YLK2_hbAfmF',
-            clientId: '165911054154-subm0j57ud22ntc7ifgp6eqncn6nqr11.apps.googleusercontent.com'
-        });
+        try {
+            await this.googleAuth.initialize({
+                apiKey: process.env.GOOGLE_API_KEY,
+                clientId: process.env.GOOGLE_CLIENT_ID
+            });
 
-        await this.facebookAuth.initialize({
-            appId: '2022299801404221'
-        });
+            await this.facebookAuth.initialize({
+                appId: process.env.FACEBOOK_APP_ID
+            });
+        } catch (err) {
+            // tslint:disable-next-line
+            console.log(err);
+            // Handle Error
+        }
     }
 
     public async handleGoogleSignInClick() {
         try {
             await this.googleAuth.signIn();
         } catch (err) {
-            // console.log(err.message);
+            // tslint:disable-next-line
+            console.log(err);
+            // Handle Error
         }
     }
 
