@@ -20,6 +20,20 @@ module.exports = (env) => {
             rules: [
                 {
                     test: /\.(ts|tsx)?$/,
+                    enforce: 'pre',
+                    use: [
+                        {
+                            loader: 'tslint-loader',
+                            options: {
+                                configFile: __dirname + '/tslint.json',
+                                emitErrors: true,
+                                failOnHint: true
+                            }
+                        }
+                    ]
+                },
+                {
+                    test: /\.(ts|tsx)?$/,
                     loader: "ts-loader",
                     options: {
                         configFile: 'tsconfig.json'
