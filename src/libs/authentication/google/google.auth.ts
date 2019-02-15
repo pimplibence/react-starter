@@ -31,7 +31,6 @@ export class GoogleAuth implements SocialAuthInterface {
 
             return Promise.resolve({
                 accessToken: response.getAuthResponse().access_token,
-                email: response.getBasicProfile().getEmail(),
                 raw: response.getAuthResponse()
             });
         } catch (err) {

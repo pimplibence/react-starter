@@ -1,9 +1,7 @@
 export interface SocialAuthSignInResponseInterface {
-    [key: string]: string | number | boolean;
-
     accessToken: string;
 
-    email: string;
+    [key: string]: string | number | boolean;
 }
 
 export interface SocialAuthInterface {

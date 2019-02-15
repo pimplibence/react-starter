@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { FacebookAuth } from '../libs/authentication/facebook/facebook.auth';
 import { GoogleAuth } from '../libs/authentication/google/google.auth';
+import { Log } from '../libs/log';
 
 export class UikitScreen extends React.Component<any, any> {
 
@@ -17,26 +18,32 @@ export class UikitScreen extends React.Component<any, any> {
             await this.facebookAuth.initialize({
                 appId: process.env.FACEBOOK_APP_ID
             });
+
         } catch (err) {
-            // tslint:disable-next-line
             console.log(err);
-            // Handle Error
         }
     }
 
     public async handleGoogleSignInClick() {
         try {
-            await this.googleAuth.signIn();
+            console.log(await this.googleAuth.signIn());
         } catch (err) {
-            // tslint:disable-next-line
-            console.log(err);
-            // Handle Error
+            Log.log(err);
+        }
+    }
+
+    public async handleFacebookSignInClick() {
+        try {
+            console.log(await this.facebookAuth.signIn());
+        } catch (err) {
+            Log.log(err);
         }
     }
 
     public render() {
         return <div className="container">
             <button onClick={() => this.handleGoogleSignInClick()}>GoogleAuth SignIn</button>
+            <button onClick={() => this.handleFacebookSignInClick()}>FacebookAuth SignIn</button>
         </div>;
     }
 }

@@ -5,8 +5,6 @@ const dotenv = require('dotenv');
 module.exports = () => {
     const environment = dotenv.config().parsed;
 
-    console.log(environment);
-
     return {
         mode: environment.production ? "production" : "development",
         entry: "./src/index.tsx",
