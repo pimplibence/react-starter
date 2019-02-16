@@ -6,17 +6,17 @@ import { Provider } from 'react-redux';
 import { Route, Switch } from 'react-router';
 import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import reduxLogger from 'redux-logger';
+import { reducers } from './reducers';
 import { UikitScreen } from './screens/uikit.screen';
 
 const root$ = document.getElementById('application');
 const history = createBrowserHistory();
 
-const reducers = {
-    router: connectRouter(history)
-};
-
 const store = createStore(
-    combineReducers(reducers),
+    combineReducers({
+        router: connectRouter(history),
+        ...reducers
+    }),
     compose(
         applyMiddleware(routerMiddleware(history)),
         applyMiddleware(reduxLogger)
