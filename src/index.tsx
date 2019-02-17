@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import { Route, Switch } from 'react-router';
 import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import reduxLogger from 'redux-logger';
+import '../node_modules/bootstrap/scss/bootstrap.scss';
 import { reducers } from './reducers';
 import { UikitScreen } from './screens/uikit.screen';
 

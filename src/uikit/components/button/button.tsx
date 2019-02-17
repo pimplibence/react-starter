@@ -10,10 +10,10 @@ interface ButtonProps extends React.DetailedHTMLProps<any, any> {
 export default class extends React.Component<ButtonProps> {
 
     public render(): React.ReactNode {
-        return <div {...this.props} className="uikit-button variant-default">
+        return <button {...this.props} className={`uikit-button btn ${this.props.className}`}>
             {this.props.title}
             {this.props.children}
-        </div>;
+        </button>;
     }
 
 }
