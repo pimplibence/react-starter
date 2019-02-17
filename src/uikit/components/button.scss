@@ -1,0 +1,17 @@
+@import "../variables";
+
+.uikit-button {
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    border: 1px solid red;
+
+    @each $key, $value in $buttons {
+        &.variant-#{$key} {
+            height: nth($value, 1);
+            padding: nth($value, 2);
+        }
+    }
+}
