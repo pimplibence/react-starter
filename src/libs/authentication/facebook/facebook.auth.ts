@@ -1,10 +1,10 @@
 import { SocialAuthInterface, SocialAuthSignInResponseInterface } from '../social-auth.interface';
-import { FacebookAuthInterface } from './facebook-auth.interface';
+import { FacebookAuthCredentialInterface } from './facebook-auth.interface';
 
 declare const window: any;
 
 export class FacebookAuth implements SocialAuthInterface {
-    public async initialize(credentials: FacebookAuthInterface): Promise<void> {
+    public async initialize(credentials: FacebookAuthCredentialInterface): Promise<void> {
         try {
             await this.download();
 

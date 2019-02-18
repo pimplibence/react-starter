@@ -1,7 +1,7 @@
 export interface SocialAuthSignInResponseInterface {
     accessToken: string;
 
-    [key: string]: string | number | boolean;
+    [key: string]: any;
 }
 
 export interface SocialAuthInterface {

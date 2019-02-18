@@ -1,3 +1,3 @@
-export interface FacebookAuthInterface {
+export interface FacebookAuthCredentialInterface {
     appId: string | undefined;
 }

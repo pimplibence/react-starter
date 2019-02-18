@@ -5,10 +5,12 @@ const dotenv = require('dotenv');
 module.exports = () => {
     const environment = dotenv.config().parsed;
 
+    console.log(environment);
+
     return {
-        mode: environment.production ? "production" : "development",
+        mode: (environment.PRODUCTION === 'true') ? "production" : "development",
         entry: "./src/index.tsx",
-        devtool: environment.production ? "source-map" : "inline-source-map",
+        devtool: (environment.PRODUCTION === 'true') ? "source-map" : "inline-source-map",
         output: {
             filename: 'bundle.[hash].js',
             path: __dirname + '/dist',

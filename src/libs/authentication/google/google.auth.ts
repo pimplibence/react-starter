@@ -1,11 +1,11 @@
 import { SocialAuthInterface, SocialAuthSignInResponseInterface } from '../social-auth.interface';
-import { GoogleAuthInterface } from './google-auth.interface';
+import { GoogleAuthCredentialInterface } from './google-auth.interface';
 
 declare const window: any;
 
 export class GoogleAuth implements SocialAuthInterface {
 
-    public async initialize(credentials: GoogleAuthInterface): Promise<void> {
+    public async initialize(credentials: GoogleAuthCredentialInterface): Promise<void> {
         try {
             await this.download();
             await this.load();
