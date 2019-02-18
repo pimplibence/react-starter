@@ -1,3 +1,4 @@
+import { clone } from 'lodash';
 import { Subject } from 'rxjs';
 import { Form } from './form';
 import { ValidatorResponseInterface } from './validator/validator-response.interface';
@@ -52,6 +53,6 @@ export class Field {
     }
 
     public getValue(): any {
-        return this.value;
+        return clone(this.value);
     }
 }

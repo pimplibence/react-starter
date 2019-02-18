@@ -9,9 +9,7 @@ export class Form {
         this.fields = fields;
 
         Object.keys(this.fields).forEach((key: string) => {
-
             this.fields[key].setParentForm(this);
-
             this.fields[key].value$.subscribe((value: any) => {
                 this.change$.next(this.toJSON());
             });

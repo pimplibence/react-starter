@@ -10,17 +10,11 @@ export class UikitScreen extends React.Component<any, any> {
 
     public form = new Form({
         email: new Field({
-            label: 'Email Address',
-            placeholder: 'Email Placeholder',
+            label: 'Simple Text Field (email)',
+            placeholder: 'Input Placeholder',
             validators: [
-                Validator.REQUIRED('Kötelező mező')
-            ]
-        }),
-        firstName: new Field({
-            label: 'FirstName',
-            placeholder: 'FirstName Placeholder',
-            validators: [
-                Validator.REQUIRED('Kötelező mező')
+                Validator.REQUIRED('Kötelező mező'),
+                Validator.EMAIL('Nem megfelelő email formátum'),
             ]
         })
     });
@@ -33,7 +27,7 @@ export class UikitScreen extends React.Component<any, any> {
     private facebookAuth = new FacebookAuth();
 
     public async componentDidMount() {
-        this.form.change$.subscribe(() => this.setState({ formValue: this.form.toJSON() }));
+        this.form.validate();
 
         try {
             await this.googleAuth.initialize({
@@ -69,27 +63,22 @@ export class UikitScreen extends React.Component<any, any> {
     public render() {
         return <div className="container">
 
-            <div className="card">
+            <div className="card mt-5">
                 <div className="card-header">Buttons</div>
                 <div className="card-body">
-                    <UiKit.Button title="GoogleAuth SignIn" onClick={() => this.handleGoogleSignInClick()} className="btn-warning"/>
-                    <UiKit.Button title="FacebookAuth SignIn" onClick={() => this.handleFacebookSignInClick()} className="btn-primary"/>
-                    <UiKit.Button title="Simple Danger Button" className="btn-danger"/>
+                    <UiKit.Button title="GoogleAuth SignIn" onClick={() => this.handleGoogleSignInClick()} className="btn-warning w-100 mb-3"/>
+                    <UiKit.Button title="FacebookAuth SignIn" onClick={() => this.handleFacebookSignInClick()} className="btn-primary w-100 mb-3"/>
+                    <UiKit.Button title="Simple Danger Button" className="btn-danger w-100 mb-3"/>
                 </div>
             </div>
 
-            <div className="card">
+            <div className="card mt-5">
                 <div className="card-header">Forms</div>
                 <div className="card-body">
-                    <div className="row">
-                        <UiKit.Input field={this.form.field('email')} className="col-12 col-sm-6"/>
-                        <UiKit.Input field={this.form.field('email')} className="col-12 col-sm-6"/>
-                        <UiKit.Input field={this.form.field('firstName')} className="col-12 col-sm-6"/>
-                    </div>
-                    <hr/>
-                    <code>
-                        <pre>{JSON.stringify(this.state.formValue, null, 4)}</pre>
-                    </code>
+
+                    <UiKit.Input field={this.form.field('email')} className="w-100"/>
+                    <UiKit.Input textarea={true} field={this.form.field('email')} className="w-100"/>
+
                 </div>
             </div>
 
