@@ -6,9 +6,10 @@ import { Provider } from 'react-redux';
 import { Route, Switch } from 'react-router';
 import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import reduxLogger from 'redux-logger';
-import '../node_modules/bootstrap/scss/bootstrap.scss';
+import './index.scss';
 import { reducers } from './reducers';
 import { UikitScreen } from './screens/uikit.screen';
+import { Sizes } from './uikit/libs/sizes';
 
 const root$ = document.getElementById('application');
 const history = createBrowserHistory();
@@ -31,3 +32,5 @@ ReactDOM.render(<Provider store={store}>
         </Switch>
     </ConnectedRouter>
 </Provider>, root$);
+
+console.log(Sizes);

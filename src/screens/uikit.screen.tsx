@@ -4,6 +4,7 @@ import { GoogleAuth } from '../libs/authentication/google/google.auth';
 import { Field } from '../libs/form/field';
 import { Form } from '../libs/form/form';
 import { Validator } from '../libs/form/validator/validator';
+import { Sizes } from '../uikit/libs/sizes';
 import { UiKit } from '../uikit/uikit';
 
 export class UikitScreen extends React.Component<any, any> {
@@ -66,9 +67,10 @@ export class UikitScreen extends React.Component<any, any> {
             <div className="card mt-5">
                 <div className="card-header">Buttons</div>
                 <div className="card-body">
+                    <UiKit.Button title="Simple Danger Button" className="btn-outline-primary w-100 mb-3" size={Sizes.Small}/>
+                    <hr/>
                     <UiKit.Button title="GoogleAuth SignIn" onClick={() => this.handleGoogleSignInClick()} className="btn-warning w-100 mb-3"/>
                     <UiKit.Button title="FacebookAuth SignIn" onClick={() => this.handleFacebookSignInClick()} className="btn-primary w-100 mb-3"/>
-                    <UiKit.Button title="Simple Danger Button" className="btn-danger w-100 mb-3"/>
                 </div>
             </div>
 
