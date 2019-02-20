@@ -4,7 +4,6 @@ import { GoogleAuth } from '../libs/authentication/google/google.auth';
 import { Field } from '../libs/form/field';
 import { Form } from '../libs/form/form';
 import { Validator } from '../libs/form/validator/validator';
-import { Sizes } from '../uikit/libs/sizes';
 import { UiKit } from '../uikit/uikit';
 
 export class UikitScreen extends React.Component<any, any> {
@@ -61,28 +60,64 @@ export class UikitScreen extends React.Component<any, any> {
         }
     }
 
+    public renderSocialButtons(): React.ReactNode {
+        return <div className="card mt-5">
+            <div className="card-header">Forms</div>
+            <div className="card-body">
+
+                <UiKit.Button title="GoogleAuth SignIn" onClick={() => this.handleGoogleSignInClick()} className="btn-warning w-100 mb-3"/>
+                <UiKit.Button title="FacebookAuth SignIn" onClick={() => this.handleFacebookSignInClick()} className="btn-primary w-100"/>
+
+            </div>
+        </div>;
+    }
+
+    public renderButtons(): React.ReactNode {
+        return <div className="card mt-5">
+            <div className="card-header">Buttons</div>
+            <div className="card-body">
+
+                <div className="row">
+                    <div className="col-12 col-sm-6">
+                        <UiKit.Button title="Small Button" className="btn-outline-primary btn-sm w-100 mb-3"/>
+                        <UiKit.Button title="Medium Button" className="btn-outline-primary w-100 mb-3"/>
+                        <UiKit.Button title="Large Button" className="btn-outline-primary btn-lg w-100"/>
+                    </div>
+                    <div className="col-12 col-sm-6">
+                        <UiKit.Button title="Small Button" className="btn-primary btn-sm w-100 mb-3"/>
+                        <UiKit.Button title="Medium Button" className="btn-primary w-100 mb-3"/>
+                        <UiKit.Button title="Large Button" className="btn-primary btn-lg w-100"/>
+                    </div>
+                </div>
+
+            </div>
+        </div>;
+    }
+
+    public renderInputs(): React.ReactNode {
+        return <div className="card mt-5">
+            <div className="card-header">Inputs</div>
+            <div className="card-body">
+
+                <div className="row">
+                    <div className="col-12 col-sm-6">
+                        <UiKit.Input field={this.form.field('email')} className="w-100"/>
+                    </div>
+                    <div className="col-12 col-sm-6">
+                        <UiKit.Input textarea={true} field={this.form.field('email')} className="w-100"/>
+                    </div>
+                </div>
+
+            </div>
+        </div>;
+    }
+
     public render() {
         return <div className="container">
 
-            <div className="card mt-5">
-                <div className="card-header">Buttons</div>
-                <div className="card-body">
-                    <UiKit.Button title="Simple Danger Button" className="btn-outline-primary w-100 mb-3" size={Sizes.Small}/>
-                    <hr/>
-                    <UiKit.Button title="GoogleAuth SignIn" onClick={() => this.handleGoogleSignInClick()} className="btn-warning w-100 mb-3"/>
-                    <UiKit.Button title="FacebookAuth SignIn" onClick={() => this.handleFacebookSignInClick()} className="btn-primary w-100 mb-3"/>
-                </div>
-            </div>
-
-            <div className="card mt-5">
-                <div className="card-header">Forms</div>
-                <div className="card-body">
-
-                    <UiKit.Input field={this.form.field('email')} className="w-100"/>
-                    <UiKit.Input textarea={true} field={this.form.field('email')} className="w-100"/>
-
-                </div>
-            </div>
+            {this.renderButtons()}
+            {this.renderSocialButtons()}
+            {this.renderInputs()}
 
         </div>;
     }

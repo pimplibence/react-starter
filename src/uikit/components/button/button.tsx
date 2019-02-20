@@ -1,7 +1,8 @@
 import * as React from 'react';
+import { BasicVariantPropertyInterface } from '../../libs/basic-variant-property.interface';
 import './button.scss';
 
-interface ButtonProps extends React.DetailedHTMLProps<any, any> {
+interface ButtonProps extends BasicVariantPropertyInterface {
     title?: string;
     icon?: string;
     loading?: boolean;

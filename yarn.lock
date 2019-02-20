@@ -28,6 +28,13 @@
     reflect-metadata "^0.1.12"
     tslib "^1.8.1"
 
+"@types/cleave.js@^1.4.0":
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@types/cleave.js/-/cleave.js-1.4.0.tgz#9b94145f2218560accb4ea1719e94ab360e39832"
+  integrity sha512-q7o9rhVZTVa+mRBHyfAGnD0s/OHK2KJdGCslpd+zzxy7ARkVnmVQ1pGK0xjdLyQTR9KdC0PUnHVrU8ilt7d/Ww==
+  dependencies:
+    "@types/react" "*"
+
 "@types/history@*", "@types/history@^4.7.2":
   version "4.7.2"
   resolved "https://registry.yarnpkg.com/@types/history/-/history-4.7.2.tgz#0e670ea254d559241b6eeb3894f8754991e73220"
@@ -869,6 +876,11 @@ clean-css@4.2.x:
   integrity sha512-4ZxI6dy4lrY6FHzfiy1aEOXgu4LIsW2MhwG0VBKdcoGoH/XLFgaHSdLTGr4O8Be6A8r3MOphEiI8Gc1n0ecf3g==
   dependencies:
     source-map "~0.6.0"
+
+cleave.js@^1.4.7:
+  version "1.4.7"
+  resolved "https://registry.yarnpkg.com/cleave.js/-/cleave.js-1.4.7.tgz#5e94f4880946aa778b55ecaafc76d122600ff4d0"
+  integrity sha512-+fewLSc8Q5Bi6vYEaTEz1Qsl+z7KT3EmN0iNexszN36CZCmcZs5EAYsJB9ZvQoDoEudGF9Vb7/VF/f7ns/tCgA==
 
 cliui@^3.2.0:
   version "3.2.0"

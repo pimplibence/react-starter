@@ -2,10 +2,11 @@ import * as React from 'react';
 import { Subscription } from 'rxjs';
 import { Field } from '../../../libs/form/field';
 import { ValidatorResponseInterface } from '../../../libs/form/validator/validator-response.interface';
+import { BasicVariantPropertyInterface } from '../../libs/basic-variant-property.interface';
 import { randomId } from '../../libs/random-id';
 import './input.scss';
 
-interface InputProps extends React.DetailedHTMLProps<any, any> {
+interface InputProps extends BasicVariantPropertyInterface {
     field: Field;
     textarea?: boolean;
     type?: 'text' | 'password' | 'number' | 'email';
@@ -25,8 +26,10 @@ export default class extends React.PureComponent<InputProps> {
         );
     }
 
-    public componentDidUpdate(prevProps: Readonly<InputProps>): void {
-        this.ref.setSelectionRange(this.cursor, this.cursor);
+    public componentDidUpdate(): void {
+        if (this.props.type !== 'number') {
+            this.ref.setSelectionRange(this.cursor, this.cursor);
+        }
     }
 
     public componentWillUnmount(): void {
@@ -38,6 +41,7 @@ export default class extends React.PureComponent<InputProps> {
 
         classes += this.componentPrefix;
         classes += ' form-group';
+        classes += ' relative';
         classes += ` ${this.props.className}`;
         classes += ` ${this.props.field.dirty ? 'dirty' : ''}`;
         classes += ` ${this.props.field.errors.length ? 'has-error' : ''}`;
