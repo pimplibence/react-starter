@@ -1,2 +1,30 @@
+@import "../../../index.scss";
+
 .uikit-button {
+    position: relative;
+
+    .content {
+        opacity: 1;
+        transition: $transition-base;
+    }
+
+    &.loading {
+        .content {
+            opacity: 0;
+            transition: $transition-base;
+        }
+
+        .loader {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+
+            @extend .d-flex;
+            @extend .justify-content-center;
+            @extend .align-items-center;
+        }
+    }
+
 }

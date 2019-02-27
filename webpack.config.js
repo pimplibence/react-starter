@@ -1,6 +1,6 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const webpack = require('webpack');
-const dotenv = require('dotenv');
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const webpack = require("webpack");
+const dotenv = require("dotenv");
 
 module.exports = () => {
     const environment = dotenv.config().parsed;
@@ -8,13 +8,13 @@ module.exports = () => {
     console.log(environment);
 
     return {
-        mode: (environment.PRODUCTION === 'true') ? "production" : "development",
+        mode: (environment.PRODUCTION === "true") ? "production" : "development",
         entry: "./src/index.tsx",
-        devtool: (environment.PRODUCTION === 'true') ? "source-map" : "inline-source-map",
+        devtool: (environment.PRODUCTION === "true") ? "source-map" : "inline-source-map",
         output: {
-            filename: 'bundle.[hash].js',
-            path: __dirname + '/dist',
-            publicPath: '/'
+            filename: "bundle.[hash].js",
+            path: __dirname + "/dist",
+            publicPath: "/"
         },
         resolve: {
             extensions: [".ts", ".tsx", ".js", ".styles"]
@@ -23,12 +23,12 @@ module.exports = () => {
             rules: [
                 {
                     test: /\.(ts|tsx)?$/,
-                    enforce: 'pre',
+                    enforce: "pre",
                     use: [
                         {
-                            loader: 'tslint-loader',
+                            loader: "tslint-loader",
                             options: {
-                                configFile: __dirname + '/tslint.json',
+                                configFile: __dirname + "/tslint.json",
                                 emitErrors: true,
                                 failOnHint: true
                             }
@@ -39,12 +39,12 @@ module.exports = () => {
                     test: /\.(ts|tsx)?$/,
                     loader: "ts-loader",
                     options: {
-                        configFile: 'tsconfig.json'
+                        configFile: "tsconfig.json"
                     }
                 },
                 {
                     test: /\.(svg|woff|woff2|ttf)$/,
-                    loader: 'url-loader'
+                    loader: "url-loader"
                 },
                 {
                     test: /\.(scss|css)$/,
@@ -59,21 +59,21 @@ module.exports = () => {
         devServer: {
             historyApiFallback: true,
             contentBase: [
-                __dirname + '/dist/'
+                __dirname + "/dist/"
             ],
             compress: true,
-            host: 'localhost',
+            host: "localhost",
             port: 3032,
             open: true
         },
         plugins: [
             new HtmlWebpackPlugin({
-                filename: 'index.html',
-                template: __dirname + '/src/index.html',
+                filename: "index.html",
+                template: __dirname + "/src/index.html",
                 title: environment.title
             }),
             new webpack.DefinePlugin({
-                'process.env': JSON.stringify(environment)
+                "process.env": JSON.stringify(environment)
             })
         ]
     };

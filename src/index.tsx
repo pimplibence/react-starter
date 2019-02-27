@@ -5,25 +5,35 @@ import * as ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { Route, Switch } from 'react-router';
 import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
-import reduxLogger from 'redux-logger';
 import './index.scss';
+import { SocketFactory } from './libs/socket/socket.factory';
 import { reducers } from './reducers';
 import { UikitScreen } from './screens/uikit.screen';
-import { Sizes } from './uikit/libs/sizes';
 
 const root$ = document.getElementById('application');
 const history = createBrowserHistory();
 
+const socket = new SocketFactory();
+
 const store = createStore(
     combineReducers({
+        ...reducers,
         router: connectRouter(history),
-        ...reducers
+        socket: socket.reducers(),
     }),
     compose(
         applyMiddleware(routerMiddleware(history)),
-        applyMiddleware(reduxLogger)
+        // applyMiddleware(reduxLogger)
     )
 );
+
+// Initialize socket library
+socket.addStore(store);
+/*
+socket.initialize((process.env as any).SOCKET_URI, {
+    reconnectionDelay: 3000
+});
+ */
 
 ReactDOM.render(<Provider store={store}>
     <ConnectedRouter history={history}>
@@ -32,5 +42,3 @@ ReactDOM.render(<Provider store={store}>
         </Switch>
     </ConnectedRouter>
 </Provider>, root$);
-
-console.log(Sizes);

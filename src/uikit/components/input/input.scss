@@ -1,14 +1,15 @@
+@import "../../../index.scss";
+
 .uikit-input {
-
-    label {
-    }
-
-    input {
-    }
-
     .validation-error {
         &.hidden {
             display: none;
+        }
+    }
+
+    &.has-error.dirty {
+        .validation-error {
+            color: $danger !important;
         }
     }
 }

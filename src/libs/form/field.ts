@@ -1,3 +1,5 @@
+// tslint:disable-next-line
+import { CleaveOptions } from 'cleave.js/options';
 import { clone } from 'lodash';
 import { Subject } from 'rxjs';
 import { Form } from './form';
@@ -6,15 +8,16 @@ import { ValidatorResponseInterface } from './validator/validator-response.inter
 export class Field {
     public value$ = new Subject();
     public validate$ = new Subject();
-
     public placeholder: string;
     public label: string;
     public hint: string;
     public value: string;
     public validators: any[];
+    public options: any[];
     public errors: ValidatorResponseInterface[] = [];
     public dirty: boolean = false;
     public parentForm: Form;
+    public format: CleaveOptions;
 
     constructor(obj: Field | any = {}) {
         this.placeholder = obj.placeholder || '';
@@ -22,6 +25,8 @@ export class Field {
         this.hint = obj.hint || '';
         this.value = obj.value || '';
         this.validators = obj.validators || [];
+        this.options = obj.options || [];
+        this.format = obj.format || {};
 
         if (this.value) {
             this.dirty = true;

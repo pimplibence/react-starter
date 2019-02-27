@@ -13,21 +13,31 @@ export class UikitScreen extends React.Component<any, any> {
             label: 'Simple Text Field (email)',
             placeholder: 'Input Placeholder',
             validators: [
-                Validator.REQUIRED('Kötelező mező'),
-                Validator.EMAIL('Nem megfelelő email formátum'),
+                Validator.REQUIRED('Kötelező mező')
             ]
+        }),
+        user: new Field({
+            label: 'Simple Text Field (email)',
+            options: [
+                { title: 'First Option', value: 0 },
+                { title: 'Second Option', value: 1 },
+                { title: 'Third Option', value: 2 },
+            ],
+            placeholder: 'Input Placeholder',
         })
     });
 
     public state = {
-        formValue: this.form.toJSON()
+        areButtonsLoading: false,
+        exampleString: this.generateRandomString(),
+        formValue: this.form.toJSON(),
     };
 
     private googleAuth = new GoogleAuth();
     private facebookAuth = new FacebookAuth();
 
     public async componentDidMount() {
-        this.form.validate();
+        await this.form.validate();
 
         try {
             await this.googleAuth.initialize({
@@ -61,32 +71,52 @@ export class UikitScreen extends React.Component<any, any> {
     }
 
     public renderSocialButtons(): React.ReactNode {
-        return <div className="card mt-5">
+        return <div className="card mb-5">
             <div className="card-header">Forms</div>
             <div className="card-body">
 
-                <UiKit.Button title="GoogleAuth SignIn" onClick={() => this.handleGoogleSignInClick()} className="btn-warning w-100 mb-3"/>
-                <UiKit.Button title="FacebookAuth SignIn" onClick={() => this.handleFacebookSignInClick()} className="btn-primary w-100"/>
+                <UiKit.Button title="GoogleAuth SignIn" loading={this.state.areButtonsLoading} onClick={() => this.handleGoogleSignInClick()} className="btn-warning btn-block mb-3"/>
+                <UiKit.Button title="FacebookAuth SignIn" loading={this.state.areButtonsLoading} onClick={() => this.handleFacebookSignInClick()} className="btn-primary btn-block"/>
 
             </div>
         </div>;
     }
 
     public renderButtons(): React.ReactNode {
-        return <div className="card mt-5">
+        return <div className="card mb-5">
             <div className="card-header">Buttons</div>
             <div className="card-body">
 
                 <div className="row">
                     <div className="col-12 col-sm-6">
-                        <UiKit.Button title="Small Button" className="btn-outline-primary btn-sm w-100 mb-3"/>
-                        <UiKit.Button title="Medium Button" className="btn-outline-primary w-100 mb-3"/>
-                        <UiKit.Button title="Large Button" className="btn-outline-primary btn-lg w-100"/>
+                        <UiKit.Button loading={this.state.areButtonsLoading} title="btn-sm" className="btn-outline-info btn-sm btn-block mb-3"/>
+                        <UiKit.Button loading={this.state.areButtonsLoading} title="btn-sm" className="btn-outline-secondary btn-sm btn-block mb-3"/>
+                        <UiKit.Button loading={this.state.areButtonsLoading && this.state.exampleString} title="btn-sm" className="btn-outline-danger btn-sm btn-block mb-3"/>
+                        <UiKit.Button loading={this.state.areButtonsLoading} title="btn-sm" className="btn-outline-primary btn-sm btn-block mb-3"/>
+                        <UiKit.Button loading={this.state.areButtonsLoading} title="btn" className="btn-outline-primary btn-block mb-3"/>
+                        <UiKit.Button loading={this.state.areButtonsLoading} title="btn-lg" className="btn-outline-primary btn-lg btn-block mb-3"/>
                     </div>
                     <div className="col-12 col-sm-6">
-                        <UiKit.Button title="Small Button" className="btn-primary btn-sm w-100 mb-3"/>
-                        <UiKit.Button title="Medium Button" className="btn-primary w-100 mb-3"/>
-                        <UiKit.Button title="Large Button" className="btn-primary btn-lg w-100"/>
+                        <UiKit.Button loading={this.state.areButtonsLoading} title="Small Button" className="btn-info btn-sm btn-block mb-3"/>
+                        <UiKit.Button loading={this.state.areButtonsLoading} title="Small Button" className="btn-secondary btn-sm btn-block mb-3"/>
+                        <UiKit.Button loading={this.state.areButtonsLoading} title="Small Button" className="btn-danger btn-sm btn-block mb-3"/>
+                        <UiKit.Button loading={this.state.areButtonsLoading} title="Small Button" className="btn-primary btn-sm btn-block mb-3"/>
+                        <UiKit.Button loading={this.state.areButtonsLoading} title="btn" className="btn-primary btn-block mb-3"/>
+                        <UiKit.Button loading={this.state.areButtonsLoading} title="btn-lg" className="btn-primary btn-lg btn-block mb-3"/>
+                    </div>
+                    <div className="col-12">
+                        <UiKit.Button loading={this.state.areButtonsLoading} title="Small Button" className="btn-info btn-sm mb-3 mr-3"/>
+                        <UiKit.Button loading={this.state.areButtonsLoading} title="Small Button" className="btn-secondary btn-sm mb-3 mr-3"/>
+                        <UiKit.Button loading={this.state.areButtonsLoading} title="Small Button" className="btn-danger btn-sm mb-3 mr-3"/>
+                        <UiKit.Button loading={this.state.areButtonsLoading} title="Small Button" className="btn-primary btn-sm mb-3 mr-3"/>
+                        <UiKit.Button loading={this.state.areButtonsLoading} title="btn" className="btn-primary mb-3 mr-3"/>
+                        <UiKit.Button loading={this.state.areButtonsLoading} title="btn-lg" className="btn-primary btn-lg mb-3 mr-3"/>
+                    </div>
+                </div>
+
+                <div className="row">
+                    <div className="col-12">
+                        <UiKit.Button onClick={() => this.toggleButtonsLoading()} title="Toggle Loading" className="btn-success btn"/>
                     </div>
                 </div>
 
@@ -95,7 +125,7 @@ export class UikitScreen extends React.Component<any, any> {
     }
 
     public renderInputs(): React.ReactNode {
-        return <div className="card mt-5">
+        return <div className="card mb-5">
             <div className="card-header">Inputs</div>
             <div className="card-body">
 
@@ -106,6 +136,9 @@ export class UikitScreen extends React.Component<any, any> {
                     <div className="col-12 col-sm-6">
                         <UiKit.Input textarea={true} field={this.form.field('email')} className="w-100"/>
                     </div>
+                    <div className="col-12 col-sm-6">
+                        <UiKit.Select field={this.form.field('user')} className="w-100"/>
+                    </div>
                 </div>
 
             </div>
@@ -113,12 +146,22 @@ export class UikitScreen extends React.Component<any, any> {
     }
 
     public render() {
-        return <div className="container">
+        return <div className="container mt-5">
 
+            {this.renderInputs()}
             {this.renderButtons()}
             {this.renderSocialButtons()}
-            {this.renderInputs()}
 
         </div>;
+    }
+
+    private toggleButtonsLoading() {
+        this.setState({
+            areButtonsLoading: !this.state.areButtonsLoading
+        });
+    }
+
+    private generateRandomString(): string {
+        return `randomString-${Math.random().toFixed(2)}`;
     }
 }

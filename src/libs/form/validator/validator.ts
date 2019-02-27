@@ -1,6 +1,8 @@
 import { Field } from '../field';
 import { ValidatorResponseInterface } from './validator-response.interface';
 
+// tslint:disable semicolon
+
 export abstract class Validator {
     public static REQUIRED = (response: string) => {
         return (field: Field): ValidatorResponseInterface => {
@@ -9,7 +11,7 @@ export abstract class Validator {
                 valid: field.getValue().toString().length > 0,
             };
         };
-    }
+    };
 
     public static EMAIL = (response: string) => {
         return (field: Field): ValidatorResponseInterface => {
@@ -20,5 +22,5 @@ export abstract class Validator {
                 valid: regex.test(field.getValue().toString()),
             };
         };
-    }
+    };
 }

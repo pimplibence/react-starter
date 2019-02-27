@@ -1,0 +1,40 @@
+@import "../../../index";
+
+.uikit-select {
+
+    &.focused {
+        .value-presenter {
+            border-color: transparent;
+            outline: none !important;
+            box-shadow: none !important;
+        }
+    }
+
+    .value-presenter {
+        position: relative;
+        @extend .form-control;
+
+        .options-presenter {
+            color: green;
+            position: absolute;
+            top: -$input-border-width;
+            left: -$input-border-width;
+            right: -$input-border-width;
+            height: 100%;
+            min-height: 250px;
+            max-height: 300px;
+            z-index: 10;
+
+            @extend .focus;
+            @extend .form-control;
+
+            background-color: #fff;
+            border-color: #80bdff;
+            outline: 0;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+
+            transition: all 1s;
+            width: unset;
+        }
+    }
+}
