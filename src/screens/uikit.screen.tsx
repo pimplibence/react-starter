@@ -17,13 +17,20 @@ export class UikitScreen extends React.Component<any, any> {
             ]
         }),
         user: new Field({
-            label: 'Simple Text Field (email)',
+            label: 'Single Select (options)',
+            multi: true,
             options: [
                 { title: 'First Option', value: 0 },
                 { title: 'Second Option', value: 1 },
                 { title: 'Third Option', value: 2 },
+                { title: 'sagas Option', value: 3 },
+                { title: 'gsasga Option', value: 4 },
+                { title: 'at Option', value: 5 },
             ],
             placeholder: 'Input Placeholder',
+            value: [
+                { title: 'sagas Option', value: 3 },
+            ]
         })
     });
 

@@ -16,6 +16,7 @@ export class Field {
     public options: any[];
     public errors: ValidatorResponseInterface[] = [];
     public dirty: boolean = false;
+    public multi: boolean = false;
     public parentForm: Form;
     public format: CleaveOptions;
 
@@ -27,6 +28,7 @@ export class Field {
         this.validators = obj.validators || [];
         this.options = obj.options || [];
         this.format = obj.format || {};
+        this.multi = obj.multi || false;
 
         if (this.value) {
             this.dirty = true;
