@@ -2,8 +2,14 @@ import * as React from 'react';
 import { Field } from '../libs/form/field';
 import { Form } from '../libs/form/form';
 import { Validator } from '../libs/form/validator/validator';
+import { Button } from '../uikit/components/button/button';
+import { randomId } from '../uikit/libs/random-id';
 
 export class UikitScreen extends React.Component<any, any> {
+
+    public state = {
+        lkasjf: randomId()
+    };
 
     public form = new Form({
         email: new Field({
@@ -15,7 +21,19 @@ export class UikitScreen extends React.Component<any, any> {
         })
     });
 
+    public componentDidMount(): void {
+        setInterval(() => {
+            this.setState({
+                lkasjf: randomId()
+            });
+
+            console.log('aksj');
+        }, 10);
+    }
+
     public render(): React.ReactNode {
-        return <h3>Hello</h3>;
+        return <div>
+            <Button title={this.state.lkasjf}/>
+        </div>;
     }
 }
