@@ -1,16 +1,11 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const webpack = require("webpack");
-const dotenv = require("dotenv");
+const env = require('./env');
 
 module.exports = () => {
-    const environment = dotenv.config().parsed;
-
-    console.log(environment);
-
     return {
-        mode: (environment.PRODUCTION === "true") ? "production" : "development",
+        mode: env.production ? "production" : "development",
         entry: "./src/index.tsx",
-        devtool: (environment.PRODUCTION === "true") ? "source-map" : "inline-source-map",
+        devtool: env.production ? "source-map" : "inline-source-map",
         output: {
             filename: "bundle.[hash].js",
             path: __dirname + "/dist",
@@ -70,10 +65,7 @@ module.exports = () => {
             new HtmlWebpackPlugin({
                 filename: "index.html",
                 template: __dirname + "/src/index.html",
-                title: environment.title
-            }),
-            new webpack.DefinePlugin({
-                "process.env": JSON.stringify(environment)
+                title: env.title
             })
         ]
     };
