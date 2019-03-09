@@ -12,7 +12,7 @@ module.exports = () => {
             publicPath: "/"
         },
         resolve: {
-            extensions: [".ts", ".tsx", ".js", ".styles"]
+            extensions: [".ts", ".tsx", ".js", ".scss"]
         },
         module: {
             rules: [

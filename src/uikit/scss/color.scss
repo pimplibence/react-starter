@@ -1,0 +1,37 @@
+@import "../../variables";
+
+$defined-css-properties: (
+    (css-property: 'background-color', class-prefix: 'bgc'),
+    (css-property: 'color', class-prefix: 'c'),
+    (css-property: 'border-color', class-prefix: 'bc'),
+);
+
+// Brand Colors
+.bc {
+
+    @each $property in $defined-css-properties {
+        @each $color-key, $variants in $brand-colors {
+            @each $variant-key, $variant in $variants {
+                &--#{map-get-deep($property, 'class-prefix')}-#{$color-key}-#{$variant-key} {
+                    #{map-get-deep($property, 'css-property')}: $variant;
+                }
+            }
+        }
+    }
+
+}
+
+// BuiltIn Colors
+.bic {
+
+    @each $property in $defined-css-properties {
+        @each $color-key, $variants in $builtin-colors {
+            @each $variant-key, $variant in $variants {
+                &--#{map-get-deep($property, 'class-prefix')}-#{$color-key}-#{$variant-key} {
+                    #{map-get-deep($property, 'css-property')}: $variant;
+                }
+            }
+        }
+    }
+
+}

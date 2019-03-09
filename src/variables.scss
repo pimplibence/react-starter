@@ -1,0 +1,88 @@
+/*
+ * Color definitions
+ *
+ * Format: <namespace>--<prefix>-<order>-<variant>
+ * Example: bc--bgc-primary-1 (Brand Colors / Primary Order / Variant 1 --> emit 'background-color' property)
+ * Example: bc--c-secondary-6 (Brand Colors / Secondary Order / Variant 6 --> emit 'color' property)
+ * Example: bic--c-accent-2 (BuiltIn Colors / Accent Order / Variant 2 --> emit 'color' property)
+ */
+
+/*
+ * Brand Colors
+ */
+$brand-colors: (
+    primary: (
+        1: #EBF3FF,
+        2: #CEE1FD,
+        3: #9DC0F1,
+        4: #769FDB,
+        5: #6690CC,
+        6: #3C639B,
+        7: #2A4D7E
+    ),
+    secondary: (
+        1: #FFE9A2,
+        2: #FFC874,
+        3: #FF9F46,
+        4: #FC722A,
+        5: #F15C1F,
+        6: #EB4909,
+        7: #CC2E00
+    ),
+    accent: (
+        1: #F6F6F7,
+        2: #B6B7BF,
+        3: #777B85,
+        4: #3A404A,
+        5: #262C36,
+        6: #1E2530,
+        7: #151B27
+    )
+) !default;
+
+/*
+ * Builtin Colors
+ */
+$builtin-colors: (
+    blue:(
+        1: #BFDDFF,
+        2: #446FF1,
+        3: #1153AF
+    ),
+    green: (
+        1: #B4EAB4,
+        2: #81D270,
+        3: #5AA13C
+    ),
+    yellow: (
+        1: #FFDF99,
+        2: #FFBC27,
+        3: #CA8C02
+    ),
+    red: (
+        1: #FFC3CF,
+        2: #DB4A50,
+        3: #C0273A
+    ),
+    neutral: (
+        1: #FFFFFF,
+        2: #F4F7FB,
+        3: #E0E7F2,
+        new: #C2CFE6,
+        4: #AAB9D1,
+        5: #8B9BB5,
+        6: #687995,
+        7: #495871,
+        8: #2C384B
+    )
+) !default;
+
+/**
+ * Elevations
+ */
+
+$elevations: (
+    1: 0 3px 10px -5px rgba(0, 0, 0, 0.4),
+    2: 0 10px 20px -7px rgba(0, 0, 0, 0.35),
+    3: 0 15px 30px -10px rgba(0, 0, 0, 0.4),
+) !default;

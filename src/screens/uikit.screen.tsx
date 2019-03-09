@@ -21,16 +21,6 @@ export class UikitScreen extends React.Component<any, any> {
         })
     });
 
-    public componentDidMount(): void {
-        setInterval(() => {
-            this.setState({
-                lkasjf: randomId()
-            });
-
-            console.log('aksj');
-        }, 10);
-    }
-
     public render(): React.ReactNode {
         return <div>
             <Button title={this.state.lkasjf}/>

@@ -1,3 +1,10 @@
-.uikit-button {
+@import "../../scss/uikit";
 
+.uikit-button {
+    border: none;
+    outline: none;
+    padding: 10px 15px;
+    cursor: pointer;
+
+    @extend .bc--bgc-primary-1;
 }
