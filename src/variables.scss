@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700&subset=latin-ext');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&subset=latin-ext');
+
 /*
  * Color definitions
  *
@@ -5,6 +8,7 @@
  * Example: bc--bgc-primary-1 (Brand Colors / Primary Order / Variant 1 --> emit 'background-color' property)
  * Example: bc--c-secondary-6 (Brand Colors / Secondary Order / Variant 6 --> emit 'color' property)
  * Example: bic--c-accent-2 (BuiltIn Colors / Accent Order / Variant 2 --> emit 'color' property)
+ * Example: bic--bc-accent-4 (BuiltIn Colors / Accent Order / Variant 4 --> emit 'border-color' property)
  */
 
 /*
@@ -38,7 +42,7 @@ $brand-colors: (
         6: #1E2530,
         7: #151B27
     )
-) !default;
+);
 
 /*
  * Builtin Colors
@@ -68,14 +72,12 @@ $builtin-colors: (
         1: #FFFFFF,
         2: #F4F7FB,
         3: #E0E7F2,
-        new: #C2CFE6,
-        4: #AAB9D1,
+        4: #C2CFE6,
         5: #8B9BB5,
         6: #687995,
-        7: #495871,
-        8: #2C384B
+        7: #2C384B,
     )
-) !default;
+);
 
 /**
  * Elevations
@@ -85,4 +87,47 @@ $elevations: (
     1: 0 3px 10px -5px rgba(0, 0, 0, 0.4),
     2: 0 10px 20px -7px rgba(0, 0, 0, 0.35),
     3: 0 15px 30px -10px rgba(0, 0, 0, 0.4),
-) !default;
+);
+
+/**
+ * Grid
+ */
+$grid-columns: 24;
+
+$grid-gutter-width: 30px;
+
+$grid-breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px
+);
+
+$container-max-widths: (
+    sm: 540px,
+    md: 720px,
+    lg: 960px,
+    xl: 1140px
+);
+
+/**
+ * Typography
+ */
+$primary-font: 'Roboto', sans-serif;
+$secondary-font: 'Open Sans', sans-serif;
+
+$spacer: 1rem;
+$font-size-base: 1rem;
+$h1-font-size: $font-size-base * 2.5;
+$h2-font-size: $font-size-base * 2;
+$h3-font-size: $font-size-base * 1.75;
+$h4-font-size: $font-size-base * 1.5;
+$h5-font-size: $font-size-base * 1.25;
+$h6-font-size: $font-size-base;
+
+$headings-margin-bottom: $spacer / 2;
+$headings-font-family: $primary-font;
+$headings-font-weight: 500;
+$headings-line-height: 1.2;
+$headings-color: null;

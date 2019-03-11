@@ -5,7 +5,10 @@ import './style.scss';
 
 export class Button extends React.Component<any, any> {
     public render(): React.ReactNode {
-        const classes = arrayToClass(['uikit-button', this.props.className]);
+        const classes = arrayToClass([
+            'uikit-button',
+            this.props.className
+        ]);
 
         return <BaseComponent className={classes} element="button">
             {this.renderTitle()}

@@ -6,5 +6,8 @@
     padding: 10px 15px;
     cursor: pointer;
 
-    @extend .bc--bgc-primary-1;
+    @extend .brand-color--bgc-primary-5;
+    @extend .builtin-color--c-neutral-1;
+
+    @include generate-colors();
 }

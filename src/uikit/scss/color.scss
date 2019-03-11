@@ -6,32 +6,36 @@ $defined-css-properties: (
     (css-property: 'border-color', class-prefix: 'bc'),
 );
 
-// Brand Colors
-.bc {
+@mixin generate-colors() {
+    // Brand Colors
+    .brand-color, &.brand-color {
 
-    @each $property in $defined-css-properties {
-        @each $color-key, $variants in $brand-colors {
-            @each $variant-key, $variant in $variants {
-                &--#{map-get-deep($property, 'class-prefix')}-#{$color-key}-#{$variant-key} {
-                    #{map-get-deep($property, 'css-property')}: $variant;
+        @each $property in $defined-css-properties {
+            @each $color-key, $variants in $brand-colors {
+                @each $variant-key, $variant in $variants {
+                    &--#{map_get($property, 'class-prefix')}-#{$color-key}-#{$variant-key} {
+                        #{map_get($property, 'css-property')}: $variant;
+                    }
                 }
             }
         }
+
     }
 
-}
+    // BuiltIn Colors
+    .builtin-color, &.builtin-color {
 
-// BuiltIn Colors
-.bic {
-
-    @each $property in $defined-css-properties {
-        @each $color-key, $variants in $builtin-colors {
-            @each $variant-key, $variant in $variants {
-                &--#{map-get-deep($property, 'class-prefix')}-#{$color-key}-#{$variant-key} {
-                    #{map-get-deep($property, 'css-property')}: $variant;
+        @each $property in $defined-css-properties {
+            @each $color-key, $variants in $builtin-colors {
+                @each $variant-key, $variant in $variants {
+                    &--#{map_get($property, 'class-prefix')}-#{$color-key}-#{$variant-key} {
+                        #{map_get($property, 'css-property')}: $variant;
+                    }
                 }
             }
         }
-    }
 
+    }
 }
+
+@include generate-colors();

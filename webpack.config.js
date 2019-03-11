@@ -12,7 +12,7 @@ module.exports = () => {
             publicPath: "/"
         },
         resolve: {
-            extensions: [".ts", ".tsx", ".js", ".scss"]
+            extensions: [".ts", ".tsx", ".js", ".scss", ".css"]
         },
         module: {
             rules: [
@@ -46,7 +46,8 @@ module.exports = () => {
                     use: [
                         {loader: "style-loader"},
                         {loader: "css-loader"},
-                        {loader: "sass-loader"}
+                        {loader: "sass-loader"},
+                        {loader: "postcss-loader"},
                     ]
                 }
             ]

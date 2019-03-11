@@ -1,8 +1,10 @@
 @import "../../variables";
+@import "tools/tools";
 
 @each $key, $elevation-shadow in $elevations {
     .elevation-#{$key} {
         box-shadow: $elevation-shadow;
-        --webkit-box-shadow: $elevation-shadow;
+
+        @include clearfix;
     }
 }

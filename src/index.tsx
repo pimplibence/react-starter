@@ -10,9 +10,7 @@ import './index.scss';
 import { reducers } from './reducers';
 import { UikitScreen } from './screens/uikit.screen';
 
-const env = require('../env.json');
-
-console.log(env);
+// const env = require('../env.json');
 
 const root$ = document.getElementById('application');
 const history = createBrowserHistory();
@@ -27,8 +25,6 @@ const store = createStore(
         applyMiddleware(reduxLogger)
     )
 );
-
-console.log();
 
 ReactDOM.render(<Provider store={store}>
     <ConnectedRouter history={history}>

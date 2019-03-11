@@ -1,5 +1,3 @@
-// tslint:disable-next-line
-import { CleaveOptions } from 'cleave.js/options';
 import { clone } from 'lodash';
 import { Subject } from 'rxjs';
 import { Form } from './form';
@@ -18,7 +16,6 @@ export class Field {
     public dirty: boolean = false;
     public multi: boolean = false;
     public parentForm: Form;
-    public format: CleaveOptions;
 
     constructor(obj: Field | any = {}) {
         this.placeholder = obj.placeholder || '';
@@ -27,7 +24,6 @@ export class Field {
         this.value = obj.value || '';
         this.validators = obj.validators || [];
         this.options = obj.options || [];
-        this.format = obj.format || {};
         this.multi = obj.multi || false;
 
         if (this.value) {
