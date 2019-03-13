@@ -116,9 +116,12 @@ $container-max-widths: (
  */
 $primary-font: 'Roboto', sans-serif;
 $secondary-font: 'Open Sans', sans-serif;
+$default-font-color: #151B27;
 
 $spacer: 1rem;
 $font-size-base: 1rem;
+$default-font-weight: 400;
+
 $h1-font-size: $font-size-base * 2.5;
 $h2-font-size: $font-size-base * 2;
 $h3-font-size: $font-size-base * 1.75;
@@ -131,3 +134,49 @@ $headings-font-family: $primary-font;
 $headings-font-weight: 500;
 $headings-line-height: 1.2;
 $headings-color: null;
+
+$paragraph-margin-bottom: $spacer;
+
+$font-weight-lighter: 300;
+$font-weight-base: 400;
+$font-weight-bolder: 600;
+$line-height-base: 1.5;
+
+$link-color: #1153AF;
+$link-decoration: none;
+$link-hover-color: darken($link-color, 15%);
+$link-hover-decoration: none;
+
+/**
+ * Spacing
+ */
+$spacer: 1rem;
+
+$spacers: (
+    0: 0,
+    1: ($spacer * .25),
+    2: ($spacer * .5),
+    3: $spacer,
+    4: ($spacer * 1.5),
+    5: ($spacer * 3)
+);
+
+/**
+ * Borders
+ */
+
+$borders-sizes: (
+    default: 1px,
+    1: 1px,
+    2: 2px,
+    3: 3px,
+);
+
+$borders-radius: (
+    default: 3px,
+    1: 3px,
+    2: 5px,
+    3: 10px,
+);
+
+$only-one-possible-border-style: solid; // Do not modify cuz i am gonna kill you with a chair!

@@ -1,0 +1,24 @@
+@import "../../../index";
+
+.square {
+    float: left;
+    width: percentage(1 / 7);
+    padding: 2px;
+
+    > div {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &:after {
+            content: "";
+            display: block;
+            padding-bottom: 100%;
+        }
+
+        > span {
+            position: absolute;
+        }
+    }
+}

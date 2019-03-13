@@ -8,7 +8,7 @@ import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import reduxLogger from 'redux-logger';
 import './index.scss';
 import { reducers } from './reducers';
-import { UikitScreen } from './screens/uikit.screen';
+import { UikitScreen } from './screens/uikit.screens/uikit.screen';
 
 // const env = require('../env.json');
 
