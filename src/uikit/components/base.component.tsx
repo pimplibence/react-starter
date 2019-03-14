@@ -13,7 +13,8 @@ export class BaseComponent extends React.Component<BaseComponentProps, any> {
         classes.push(this.props.className);
 
         return React.createElement(this.props.element || 'div', {
-            className: arrayToClass(classes)
+            className: arrayToClass(classes),
+            ...this.props
         }, this.props.children);
     }
 }

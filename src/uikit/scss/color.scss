@@ -8,25 +8,10 @@ $defined-css-properties: (
 
 @mixin generate-colors() {
     // Brand Colors
-    .brand-color, &.brand-color {
+    .palette, &.palette {
 
         @each $property in $defined-css-properties {
-            @each $color-key, $variants in $brand-colors {
-                @each $variant-key, $variant in $variants {
-                    &--#{map_get($property, 'class-prefix')}-#{$color-key}-#{$variant-key} {
-                        #{map_get($property, 'css-property')}: $variant;
-                    }
-                }
-            }
-        }
-
-    }
-
-    // BuiltIn Colors
-    .builtin-color, &.builtin-color {
-
-        @each $property in $defined-css-properties {
-            @each $color-key, $variants in $builtin-colors {
+            @each $color-key, $variants in $palette-colors {
                 @each $variant-key, $variant in $variants {
                     &--#{map_get($property, 'class-prefix')}-#{$color-key}-#{$variant-key} {
                         #{map_get($property, 'css-property')}: $variant;
@@ -39,3 +24,7 @@ $defined-css-properties: (
 }
 
 @include generate-colors();
+
+@mixin append-color($selector, $category, $variant) {
+    @extend .palette--#{$selector}-#{$category}-#{$variant};
+}

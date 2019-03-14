@@ -1,0 +1,163 @@
+@import "../../scss/uikit";
+
+$button-variants: (
+    primary: (
+        palette: primary,
+        shadow-palette: primary,
+        color-palette: neutral,
+        bgc-variant: 5,
+        bc-variant: 6,
+        c-variant: 1,
+        hover-bgc-variant: 6,
+        hover-bc-variant: 6,
+        hover-c-variant: 1,
+        focus-shadow-variant: 3,
+        shadow-variant: 4
+    ),
+    secondary: (
+        palette: secondary,
+        shadow-palette: secondary,
+        color-palette: neutral,
+        bgc-variant: 5,
+        bc-variant: 6,
+        c-variant: 1,
+        hover-bgc-variant: 6,
+        hover-bc-variant: 6,
+        hover-c-variant: 1,
+        focus-shadow-variant: 3,
+        shadow-variant: 3
+    ),
+    accent: (
+        palette: accent,
+        shadow-palette: accent,
+        color-palette: neutral,
+        bgc-variant: 5,
+        bc-variant: 6,
+        c-variant: 1,
+        hover-bgc-variant: 6,
+        hover-bc-variant: 6,
+        hover-c-variant: 1,
+        focus-shadow-variant: 3,
+        shadow-variant: 3
+    ),
+    neutral: (
+        palette: neutral,
+        shadow-palette: neutral,
+        color-palette: neutral,
+        bgc-variant: 5,
+        bc-variant: 6,
+        c-variant: 1,
+        hover-bgc-variant: 6,
+        hover-bc-variant: 6,
+        hover-c-variant: 1,
+        focus-shadow-variant: 3
+    ),
+    disable: (
+        palette: neutral,
+        shadow-palette: neutral,
+        color-palette: neutral,
+        bgc-variant: 3,
+        bc-variant: 3,
+        c-variant: 1,
+        hover-bgc-variant: 3,
+        hover-bc-variant: 3,
+        hover-c-variant: 1,
+        focus-shadow-variant: 1
+    ),
+    warning: (
+        palette: warning,
+        shadow-palette: warning,
+        color-palette: neutral,
+        bgc-variant: 2,
+        bc-variant: 3,
+        c-variant: 1,
+        hover-bgc-variant: 3,
+        hover-bc-variant: 3,
+        hover-c-variant: 1,
+        focus-shadow-variant: 1
+    ),
+    success: (
+        palette: success,
+        shadow-palette: success,
+        color-palette: neutral,
+        bgc-variant: 2,
+        bc-variant: 3,
+        c-variant: 1,
+        hover-bgc-variant: 3,
+        hover-bc-variant: 3,
+        hover-c-variant: 1,
+        focus-shadow-variant: 1
+    ),
+    danger: (
+        palette: danger,
+        shadow-palette: danger,
+        color-palette: neutral,
+        bgc-variant: 2,
+        bc-variant: 3,
+        c-variant: 1,
+        hover-bgc-variant: 3,
+        hover-bc-variant: 3,
+        hover-c-variant: 1,
+        focus-shadow-variant: 1
+    ),
+    info: (
+        palette: info,
+        shadow-palette: info,
+        color-palette: neutral,
+        bgc-variant: 2,
+        bc-variant: 3,
+        c-variant: 1,
+        hover-bgc-variant: 3,
+        hover-bc-variant: 3,
+        hover-c-variant: 1,
+        focus-shadow-variant: 1
+    )
+);
+
+.uikit-button {
+    outline: none;
+    padding: 7px 15px;
+    cursor: pointer;
+
+    @each $key, $item in $button-variants {
+        &.btn {
+            &-#{$key} {
+                $palette: map_get($item, 'palette');
+                $color-palette: map_get($item, 'color-palette');
+                $shadow-palette: map_get($item, 'shadow-palette');
+                $bgc-variant: map_get($item, 'bgc-variant');
+                $bc-variant: map_get($item, 'bc-variant');
+                $c-variant: map_get($item, 'c-variant');
+                $hover-bgc-variant: map_get($item, 'hover-bgc-variant');
+                $hover-bc-variant: map_get($item, 'hover-bc-variant');
+                $hover-c-variant: map_get($item, 'hover-c-variant');
+                $shadow-variant: map_get($item, 'focus-shadow-variant');
+
+
+                @include append-color(bc, $palette, $bc-variant);
+                @include append-color(bgc, $palette, $bgc-variant);
+                @include append-color(c, $color-palette, $c-variant);
+
+                @include hover-focus-active() {
+                    @include append-color(bc, $palette, $hover-bc-variant);
+                    @include append-color(bgc, $palette, $hover-bgc-variant);
+                    @include append-color(c, $color-palette, $hover-c-variant);
+                }
+
+                @include focus-active() {
+                    box-shadow: 0 0 0 map_get($borders-sizes, 2) map-get-deep($palette-colors, $shadow-palette, $shadow-variant);
+                }
+            }
+        }
+    }
+
+    @include hover-focus-active() {
+        @include transition(all)
+    }
+
+    @include generate-colors();
+    @include transition(all);
+
+    @extend .border-2;
+    @extend .border-radius-2;
+}

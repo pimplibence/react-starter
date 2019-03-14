@@ -8,7 +8,7 @@
 
         @each $border-key, $value in $borders-sizes {
             .border#{$infix}-#{$border-key} {
-                border-style: $only-one-possible-border-style;
+                border-style: $only-one-possible-border-style !important;
                 border-width: $value !important;
                 border-color: unset;
             }

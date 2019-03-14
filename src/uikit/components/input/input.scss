@@ -1,0 +1,30 @@
+@import "../../scss/uikit";
+
+.uikit-input {
+    label {
+        cursor: pointer;
+    }
+
+    input {
+        outline: none;
+        padding: 7px 15px;
+        width: 100%;
+
+        @include append-color(bc, neutral, 5);
+        @include append-color(c, neutral, 7);
+
+        @include focus-active() {
+            box-shadow: 0 0 0 map_get($borders-sizes, 2) map-get-deep($palette-colors, neutral, 3);
+        }
+
+        @include hover-focus-active() {
+            @include transition(all)
+        }
+
+        @include generate-colors();
+        @include transition(all);
+
+        @extend .border-2;
+        @extend .border-radius-2;
+    }
+}

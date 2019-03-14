@@ -4,6 +4,19 @@
     }
 }
 
+@mixin focus {
+    &:focus {
+        @content;
+    }
+}
+
+@mixin active {
+    &:active {
+        @content;
+    }
+}
+
+
 @mixin hover-focus {
     &:hover,
     &:focus {
@@ -11,10 +24,16 @@
     }
 }
 
-@mixin plain-hover-focus {
-    &,
-    &:hover,
-    &:focus {
+@mixin focus-active {
+    &:focus,
+    &:active {
+        @content;
+    }
+}
+
+@mixin active-hover {
+    &:focus,
+    &:active {
         @content;
     }
 }

@@ -28,7 +28,7 @@ export abstract class Uikit {
     public static Select = () => 'Component';
 
     /**
-     * Simple Button
+     * Simple Input
      * @constructor
      */
     public static Button = () => 'Component';

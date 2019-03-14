@@ -1,25 +1,35 @@
 import * as React from 'react';
-import { Field } from '../../libs/form/field';
-import { Form } from '../../libs/form/form';
-import { Validator } from '../../libs/form/validator/validator';
-import { Paletta } from './components/paletta';
+import { Buttons } from './components/buttons/buttons';
+import { Grid } from './components/grid/grid';
+import { Inputs } from './components/inputs/inputs';
+import { Palette } from './components/palette/palette';
+import { Typography } from './components/typography/typography';
 import './uikit.screen.scss';
 
 export class UikitScreen extends React.Component<any, any> {
 
-    public form = new Form({
-        email: new Field({
-            label: 'Simple Field',
-            placeholder: 'Input Placeholder',
-            validators: [
-                Validator.REQUIRED('Kötelező mező')
-            ]
-        })
-    });
-
     public render(): React.ReactNode {
-        return <div className="container mt-5">
-            <Paletta/>
+        return <div className="container-fluid no-gutters">
+            <div className="container mt-2 mb-5">
+                <h1>Grid</h1>
+                <Grid className="p-4 palette--bc-neutral-3 elevation-1 border-1 border-radius-2"/>
+            </div>
+            <div className="container mt-2 mb-5">
+                <h1>Inputs</h1>
+                <Inputs className="p-4 palette--bc-neutral-3 elevation-1 border-1 border-radius-2"/>
+            </div>
+            <div className="container mt-2 mb-5">
+                <h1>Buttons</h1>
+                <Buttons className="p-4 palette--bc-neutral-3 elevation-1 border-1 border-radius-2"/>
+            </div>
+            <div className="container mt-2 mb-5">
+                <h1>Colors & Borders</h1>
+                <Palette className="p-4 palette--bc-neutral-3 elevation-1 border-1 border-radius-2"/>
+            </div>
+            <div className="container mt-2 mb-5">
+                <h1>Typography</h1>
+                <Typography className="p-4 palette--bc-neutral-3 elevation-1 border-1 border-radius-2"/>
+            </div>
         </div>;
     }
 

@@ -1,9 +1,9 @@
 import * as React from 'react';
-import './paletta.scss';
+import './palette.scss';
 
 const palettas = [
     {
-        namespace: 'brand-color',
+        namespace: 'palette',
         categories: [
             {
                 category: 'primary',
@@ -16,12 +16,7 @@ const palettas = [
             {
                 category: 'accent',
                 variants: [1, 2, 3, 4, 5, 6, 7]
-            }
-        ]
-    },
-    {
-        namespace: 'builtin-color',
-        categories: [
+            },
             {
                 category: 'blue',
                 variants: [1, 2, 3]
@@ -46,10 +41,10 @@ const palettas = [
     }
 ];
 
-export class Paletta extends React.Component<any, any> {
+export class Palette extends React.Component<any, any> {
 
     public render(): React.ReactNode {
-        return <div>
+        return <div className={this.props.className}>
 
             {palettas.map((palette, index: number) => <div className="row mb-2" key={index}>
 

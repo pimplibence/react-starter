@@ -46,6 +46,7 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 //    the `inherit` value on things like `<th>` elements.
 
 body {
+    padding: 0;
     margin: 0; // 1
     font-family: $secondary-font;
     @include font-size($font-size-base);
@@ -80,7 +81,7 @@ hr {
 
 
 //
-// Typography
+// Inputs
 //
 
 // Remove top margins from headings
@@ -298,7 +299,7 @@ th {
 label {
     // Allow labels to use `margin` for spacing.
     display: inline-block;
-    margin-bottom: $paragraph-margin-bottom;
+    margin-bottom: $label-margin-bottom;
 }
 
 // Remove the default `border-radius` that macOS Chrome adds.
@@ -314,8 +315,7 @@ button {
 //
 // Credit: https://github.com/suitcss/base/
 button:focus {
-    outline: 1px dotted;
-    outline: 5px auto -webkit-focus-ring-color;
+    outline: none;
 }
 
 input,
