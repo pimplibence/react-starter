@@ -1,6 +1,6 @@
 // $borders-sizes
 @import "../../variables";
-@import "tools/tools";
+@import "./tools/break";
 
 @each $key, $breakpoint in map-keys($grid-breakpoints) {
     @include media-breakpoint-up($key, $grid-breakpoints) {

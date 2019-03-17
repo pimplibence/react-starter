@@ -1,0 +1,12 @@
+.uikit-button {
+    outline: none;
+    cursor: pointer;
+
+    @each $key, $item in $button-like-colors {
+        &.button-#{$key} {
+            @include make-button-like($item...);
+        }
+    }
+
+    @include make-button-like-sizes();
+}

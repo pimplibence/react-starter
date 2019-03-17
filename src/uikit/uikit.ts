@@ -1,6 +1,10 @@
 // tslint:disable variable-name
+import './scss/uikit';
 
 export abstract class Uikit {
+    public static boot() {
+        //
+    }
 
     /**
      * Text input

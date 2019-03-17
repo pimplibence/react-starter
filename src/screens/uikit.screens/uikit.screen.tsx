@@ -4,7 +4,6 @@ import { Grid } from './components/grid/grid';
 import { Inputs } from './components/inputs/inputs';
 import { Palette } from './components/palette/palette';
 import { Typography } from './components/typography/typography';
-import './uikit.screen.scss';
 
 export class UikitScreen extends React.Component<any, any> {
 

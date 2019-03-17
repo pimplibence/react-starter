@@ -1,0 +1,14 @@
+@function map-get-deep($map, $keys...) {
+    @each $key in $keys {
+        $map: map-get($map, $key);
+    }
+    @return $map;
+}
+
+@function get-value($value, $else) {
+    @if ($value != null) {
+        @return $value;
+    } @else {
+        @return else;
+    }
+}

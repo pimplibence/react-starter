@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { arrayToClass } from '../../libs/array-to-class';
 import { BaseComponent } from '../base.component';
-import './button.scss';
 
 export class Button extends React.Component<any, any> {
     public render(): React.ReactNode {

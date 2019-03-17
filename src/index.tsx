@@ -6,11 +6,12 @@ import { Provider } from 'react-redux';
 import { Route, Switch } from 'react-router';
 import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import reduxLogger from 'redux-logger';
-import './index.scss';
 import { reducers } from './reducers';
 import { UikitScreen } from './screens/uikit.screens/uikit.screen';
-
+import { Uikit } from './uikit/uikit';
 // const env = require('../env.json');
+
+Uikit.boot();
 
 const root$ = document.getElementById('application');
 const history = createBrowserHistory();

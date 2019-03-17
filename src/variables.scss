@@ -1,3 +1,4 @@
+@import "./uikit/scss/tools/functions";
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700&subset=latin-ext');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&subset=latin-ext');
 
@@ -47,22 +48,22 @@ $palette-colors: (
         6: #1E2530,
         7: #151B27
     ),
-    info:(
+    blue:(
         1: #BFDDFF,
         2: #446FF1,
         3: #1153AF
     ),
-    success: (
+    green: (
         1: #B4EAB4,
         2: #81D270,
         3: #5AA13C
     ),
-    warning: (
+    yellow: (
         1: #FFDF99,
         2: #FFBC27,
         3: #CA8C02
     ),
-    danger: (
+    red: (
         1: #FFC3CF,
         2: #DB4A50,
         3: #C0273A
@@ -166,17 +167,110 @@ $spacers: (
  */
 
 $borders-sizes: (
-    default: 1px,
     1: 1px,
     2: 2px,
     3: 3px,
 );
 
 $borders-radius: (
-    default: 3px,
     1: 3px,
     2: 5px,
     3: 10px,
 );
 
 $only-one-possible-border-style: solid; // Do not modify cuz i am gonna kill you with a chair!
+
+/**
+ * Buttons Like
+ */
+$button-color-variants: (
+);
+
+$button-like-sizes: (
+    1: ($spacer * .2) ($spacer * .4),
+    2: ($spacer * .4) ($spacer * .75),
+    3: ($spacer * .75) ($spacer * 1.25)
+);
+
+$button-like-colors: (
+    primary: (
+        map-get-deep($palette-colors, 'primary', 5),
+        map-get-deep($palette-colors, 'primary', 5),
+        map-get-deep($palette-colors, neutral, 1),
+        map-get-deep($palette-colors, 'primary', 6),
+        map-get-deep($palette-colors, 'primary', 6),
+        map-get-deep($palette-colors, neutral, 1),
+        map-get-deep($palette-colors, 'primary', 3),
+        map_get($borders-sizes, 2)
+    ),
+    secondary: (
+        map-get-deep($palette-colors, 'secondary', 5),
+        map-get-deep($palette-colors, 'secondary', 5),
+        map-get-deep($palette-colors, neutral, 1),
+        map-get-deep($palette-colors, 'secondary', 6),
+        map-get-deep($palette-colors, 'secondary', 6),
+        map-get-deep($palette-colors, neutral, 1),
+        map-get-deep($palette-colors, 'secondary', 3),
+        map_get($borders-sizes, 2)
+    ),
+    accent: (
+        map-get-deep($palette-colors, 'accent', 5),
+        map-get-deep($palette-colors, 'accent', 5),
+        map-get-deep($palette-colors, neutral, 1),
+        map-get-deep($palette-colors, 'accent', 6),
+        map-get-deep($palette-colors, 'accent', 6),
+        map-get-deep($palette-colors, neutral, 1),
+        map-get-deep($palette-colors, 'accent', 3),
+        map_get($borders-sizes, 2)
+    ),
+    red: (
+        map-get-deep($palette-colors, red, 2),
+        map-get-deep($palette-colors, red, 2),
+        map-get-deep($palette-colors, neutral, 1),
+        map-get-deep($palette-colors, red, 3),
+        map-get-deep($palette-colors, red, 3),
+        map-get-deep($palette-colors, neutral, 1),
+        map-get-deep($palette-colors, red, 1),
+        map_get($borders-sizes, 2)
+    ),
+    blue: (
+        map-get-deep($palette-colors, blue, 2),
+        map-get-deep($palette-colors, blue, 2),
+        map-get-deep($palette-colors, neutral, 1),
+        map-get-deep($palette-colors, blue, 3),
+        map-get-deep($palette-colors, blue, 3),
+        map-get-deep($palette-colors, neutral, 1),
+        map-get-deep($palette-colors, blue, 1),
+        map_get($borders-sizes, 2)
+    ),
+    green: (
+        map-get-deep($palette-colors, green, 2),
+        map-get-deep($palette-colors, green, 2),
+        map-get-deep($palette-colors, neutral, 1),
+        map-get-deep($palette-colors, green, 3),
+        map-get-deep($palette-colors, green, 3),
+        map-get-deep($palette-colors, neutral, 1),
+        map-get-deep($palette-colors, green, 1),
+        map_get($borders-sizes, 2)
+    ),
+    yellow: (
+        map-get-deep($palette-colors, yellow, 2),
+        map-get-deep($palette-colors, yellow, 2),
+        map-get-deep($palette-colors, neutral, 1),
+        map-get-deep($palette-colors, yellow, 3),
+        map-get-deep($palette-colors, yellow, 3),
+        map-get-deep($palette-colors, neutral, 1),
+        map-get-deep($palette-colors, yellow, 1),
+        map_get($borders-sizes, 2)
+    ),
+    disabled: (
+        map-get-deep($palette-colors, neutral, 3),
+        map-get-deep($palette-colors, neutral, 3),
+        map-get-deep($palette-colors, neutral, 4),
+        map-get-deep($palette-colors, neutral, 3),
+        map-get-deep($palette-colors, neutral, 3),
+        map-get-deep($palette-colors, neutral, 4),
+        null,
+        map_get($borders-sizes, 2)
+    )
+);

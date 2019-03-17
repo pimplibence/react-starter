@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const env = require('./env');
 
 module.exports = () => {
@@ -8,8 +9,9 @@ module.exports = () => {
         devtool: env.production ? "source-map" : "inline-source-map",
         output: {
             filename: "bundle.[hash].js",
+            chunkFilename: "[id].chunk.js",
             path: __dirname + "/dist",
-            publicPath: "/"
+            publicPath: "/",
         },
         resolve: {
             extensions: [".ts", ".tsx", ".js", ".scss", ".css"]
@@ -67,7 +69,8 @@ module.exports = () => {
                 filename: "index.html",
                 template: __dirname + "/src/index.html",
                 title: env.title
-            })
+            }),
+            new BundleAnalyzerPlugin()
         ]
     };
 };

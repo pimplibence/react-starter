@@ -3,20 +3,21 @@ import { Button } from '../../../../uikit/components/button/button';
 import { arrayToClass } from '../../../../uikit/libs/array-to-class';
 import './buttons.scss';
 
+const variants = ['primary', 'secondary', 'accent', 'red', 'blue', 'green', 'yellow', 'disabled'];
+const sizes = [1, 2, 3];
+
 export class Buttons extends React.Component<any, any> {
 
     public render(): React.ReactNode {
         return <div className={arrayToClass([this.props.className, 'button-example'])}>
 
-            <Button title="btn-primary" className="btn-primary m-1"/>
-            <Button title="btn-secondary" className="btn-secondary m-1"/>
-            <Button title="btn-accent" className="btn-accent m-1"/>
-            <Button title="btn-danger" className="btn-danger m-1"/>
-            <Button title="btn-success" className="btn-success m-1"/>
-            <Button title="btn-info" className="btn-info m-1"/>
-            <Button title="btn-warning" className="btn-warning m-1"/>
-            <Button title="btn-neutral" className="btn-neutral m-1"/>
-            <Button title="btn-disable" className="btn-disable m-1"/>
+            {sizes.map((size: number) => <div className="row" key={size}>
+
+                <div className="col-24">
+                    {variants.map((variant: string) => <Button key={variant} title={variant} className={`button-${variant} size-${size} m-1`}/>)}
+                </div>
+
+            </div>)}
 
         </div>;
     }
