@@ -4,30 +4,31 @@
 @import "../tools/transition";
 @import "../tools/functions";
 
-@mixin make-button-like($bgc, $bc, $c, $hover-bgc, $hover-bc, $hover-c, $shadow-color, $border-width) {
-    background-color: get-value($bgc, unset);
-    border-color: get-value($bc, black);
-    color: get-value($c, black);
+@mixin make-button-like($options) {
+
+    background-color: get-value(map_get($options, 'background-color'), unset);
+    border-color: get-value(map_get($options, 'border-color'), black);
+    color: get-value(map_get($options, 'text-color'), black);
 
     @include hover-focus-active() {
-        background-color: get-value($hover-bgc, 'unset');
-        border-color: get-value($hover-bc, black);
-        color: get-value($hover-c, black);
+        background-color: get-value(map_get($options, 'hover-background-color'), 'unset');
+        border-color: get-value(map_get($options, 'hover-border-color'), black);
+        color: get-value(map_get($options, 'hover-text-color-color'), black);
     }
 
     @include focus-active() {
-        box-shadow: 0 0 0 get-value($border-width, 1px) get-value($shadow-color, none);
-    }
-
-    @include hover-focus-active() {
-        @include transition(all)
+        box-shadow: 0 0 0 get-value(map_get($options, 'outline-width'), 1px) get-value(map_get($options, 'outline-color'), black);
     }
 
     @include generate-colors();
-    @include transition(all);
-
     @extend .border-2;
     @extend .border-radius-2;
+
+    @include hover-focus-active() {
+        @include transition(all);
+    }
+
+    @include transition(all);
 }
 
 @mixin make-button-like-sizes() {

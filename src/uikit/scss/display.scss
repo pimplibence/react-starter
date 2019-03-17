@@ -1,7 +1,7 @@
-@import "../../variables";
 @import "tools/tools";
 
 $displays: none, inline, inline-block, block, table, table-row, table-cell, flex, inline-flex;
+$positions: relative, absolute, fixed, static;
 
 @each $key, $breakpoint in map-keys($grid-breakpoints) {
     @include media-breakpoint-up($key, $grid-breakpoints) {
@@ -15,3 +15,23 @@ $displays: none, inline, inline-block, block, table, table-row, table-cell, flex
     }
 }
 
+@each $key, $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-up($key, $grid-breakpoints) {
+        $infix: breakpoint-infix($key, $grid-breakpoints);
+
+        @each $value in $positions {
+            .position#{$infix}-#{$value} {
+                position: $value !important;
+            }
+        }
+    }
+}
+
+.absolute-zero {
+    @extend .position-absolute;
+
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}

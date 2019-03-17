@@ -2,7 +2,9 @@ import * as React from 'react';
 import { Field } from '../../../../libs/form/field';
 import { Form } from '../../../../libs/form/form';
 import { Validator } from '../../../../libs/form/validator/validator';
+import { FormControl } from '../../../../uikit/components/input/form-control';
 import { Input } from '../../../../uikit/components/input/input';
+import { Label } from '../../../../uikit/components/input/label';
 import { arrayToClass } from '../../../../uikit/libs/array-to-class';
 import './inputs.scss';
 
@@ -14,8 +16,8 @@ export class Inputs extends React.Component<any, any> {
     public form = new Form({
         email: new Field({
             label: 'Simple Field',
-            value: 'Hello Nigga',
-            placeholder: 'Input Placeholder',
+            value: 'example value',
+            placeholder: 'example placeholder',
             validators: [
                 Validator.REQUIRED('Kötelező mező')
             ]
@@ -33,7 +35,14 @@ export class Inputs extends React.Component<any, any> {
 
                 <div className="col-24">
                     <div className="row">
-                        {variants.map((variant: string) => <Input field={this.form.field('email')} key={variant} title={variant} className={`col-24 col-sm-8 col-md-6 input-${variant} size-${size} m-1`}/>)}
+                        {variants.map((variant: string) => <div key={variant} className="col-24 col-sm-8 col-md-6">
+
+                            <FormControl field={this.form.field('email')}>
+                                <Label/>
+                                <Input className={`input-${variant} size-${size}`}/>
+                            </FormControl>
+
+                        </div>)}
                     </div>
                 </div>
 

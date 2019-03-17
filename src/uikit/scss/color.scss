@@ -1,4 +1,4 @@
-@import "../../variables";
+@import "variables";
 
 $defined-css-properties: (
     (css-property: 'background-color', class-prefix: 'bgc'),
@@ -14,7 +14,7 @@ $defined-css-properties: (
             @each $color-key, $variants in $palette-colors {
                 @each $variant-key, $variant in $variants {
                     &--#{map_get($property, 'class-prefix')}-#{$color-key}-#{$variant-key} {
-                        #{map_get($property, 'css-property')}: $variant;
+                        #{map_get($property, 'css-property')}: $variant !important;
                     }
                 }
             }

@@ -1,9 +1,11 @@
 import { clone } from 'lodash';
 import { Subject } from 'rxjs';
+import { randomId } from '../../uikit/libs/random-id';
 import { Form } from './form';
 import { ValidatorResponseInterface } from './validator/validator-response.interface';
 
 export class Field {
+    public id = randomId();
     public value$ = new Subject();
     public validate$ = new Subject();
     public placeholder: string;

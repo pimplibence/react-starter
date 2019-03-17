@@ -1,5 +1,4 @@
 // $borders-sizes
-@import "../../variables";
 @import "./tools/break";
 
 @each $key, $breakpoint in map-keys($grid-breakpoints) {

@@ -1,13 +1,21 @@
+@import "../tools/functions";
+
 .uikit-input {
     outline: none;
     width: 100%;
 
     @include make-button-like-sizes();
 
-    @each $key, $item in $button-like-colors {
+    @each $key, $item in $input-like-colors {
         &.input-#{$key} {
-            @include make-button-like($item...);
-            background: none;
+            @include make-button-like($item);
+
+            &::placeholder {
+                color: get-value(map-get-deep($item, 'placeholder-color'), black);
+                opacity: 1;
+            }
         }
     }
+
+    @extend .input-default;
 }

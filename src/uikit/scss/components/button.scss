@@ -1,10 +1,21 @@
 .uikit-button {
     outline: none;
     cursor: pointer;
+    position: relative;
+
+    &.loading {
+        .title {
+            opacity: 0;
+        }
+    }
+
+    .title {
+        opacity: 1;
+    }
 
     @each $key, $item in $button-like-colors {
         &.button-#{$key} {
-            @include make-button-like($item...);
+            @include make-button-like($item);
         }
     }
 
