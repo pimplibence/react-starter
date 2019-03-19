@@ -6,7 +6,7 @@
 /**
  * General
  */
-$transition-base: .2 !default;
+$transition-base: .4s !default;
 $spinner-transition: 1s !default;
 
 /*
@@ -114,7 +114,7 @@ $container-max-widths: (
 ) !default;
 
 /**
- * Inputs
+ * Typography
  */
 $primary-font: 'Roboto', sans-serif !default;
 $secondary-font: 'Open Sans', sans-serif !default;
@@ -137,7 +137,9 @@ $headings-font-weight: 500 !default;
 $headings-line-height: 1.2 !default;
 $headings-color: null !default;
 
-$paragraph-margin-bottom: 0 !default;
+$paragraph-margin-bottom: 1rem !default;
+$paragraph-line-height: 1.5rem !default;
+
 $label-margin-bottom: 0 !default;
 
 $font-weight-lighter: 300 !default;
@@ -185,8 +187,6 @@ $only-one-possible-border-style: solid !default; // Do not modify cuz i am gonna
 /**
  * Buttons Like
  */
-$button-color-variants: (
-) !default;
 
 $button-like-sizes: (
     1: ($spacer * .2) ($spacer * .4),
@@ -272,7 +272,7 @@ $button-like-colors: (
         hover-background-color: map-get-deep($palette-colors, neutral, 3),
         hover-border-color: map-get-deep($palette-colors, neutral, 3),
         hover-text-color: map-get-deep($palette-colors, neutral, 4),
-        outline-color: null,
+        outline-color: transparent,
         outline-width: map_get($borders-sizes, 2)
     )
 ) !default;

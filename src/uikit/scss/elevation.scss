@@ -1,9 +1,33 @@
 @import "tools/tools";
 
-@each $key, $elevation-shadow in $elevations {
-    .elevation-#{$key} {
-        box-shadow: $elevation-shadow;
+/*
+ Elevation
+ ---
+ ClassList:
 
-        @include clearfix;
+    .elevation-1
+    .elevation-2
+    .elevation-3
+
+ Permutations (sm, md, lg, xl)
+
+    .elevation-1
+    .elevation-sm-1
+    .
+    .
+    ...
+**/
+
+@each $key, $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-up($key, $grid-breakpoints) {
+        $infix: breakpoint-infix($key, $grid-breakpoints);
+
+        @each $key, $elevation-shadow in $elevations {
+            .elevation#{$infix}-#{$key} {
+                box-shadow: $elevation-shadow;
+                @include clearfix;
+            }
+        }
     }
 }
+

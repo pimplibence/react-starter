@@ -1,3 +1,42 @@
+/*
+ Display Tools
+ ---
+ ClassList:
+
+    .display-none
+    .display-inline
+    .display-inherit
+    .display-inline-block
+    .display-block
+    .display-table
+    .
+    .
+    ...
+
+    .position-relative
+    .position-absolute
+    .position-fixed
+    .position-static
+
+    .absolute-zero
+
+ Permutations (sm, md, lg, xl)
+
+    .display-none
+    .display-sm-none
+    .display-md-none
+    .display-lg-none
+    .display-xl-none
+    .
+    .
+    ...
+
+    .position-relative
+    .position-sm-relative
+    .
+    .
+    ...
+**/
 @import "tools/tools";
 
 $displays: none, inline, inherit, inline-block, block, table, table-row, table-cell, flex, inline-flex;

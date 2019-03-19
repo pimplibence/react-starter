@@ -1,26 +1,27 @@
 @mixin border-side-radius-null($side) {
     border-bottom-#{$side}-radius: 0 !important;
     border-top-#{$side}-radius: 0 !important;
-
-    .input-wrapper > input {
-        border-bottom-#{$side}-radius: 0 !important;
-        border-top-#{$side}-radius: 0 !important;
-    }
 }
 
 .button-like-group {
+    width: 100%;
     @extend .display-flex;
+    @extend .flex-nowrap;
+    @extend .mb-3;
 
-    .uikit-input {
-        @extend .display-inherit;
-        margin-bottom: 0 !important;
+    .button-like {
+        @extend .flex-fill;
+        @include border-side-radius-null(right);
+        @include border-side-radius-null(left);
     }
 
     .button-like:first-child {
+        @extend .border-radius-2;
         @include border-side-radius-null(right);
     }
 
     .button-like:last-child {
+        @extend .border-radius-2;
         @include border-side-radius-null(left);
     }
 

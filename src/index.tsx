@@ -29,6 +29,7 @@ ReactDOM.render(<Provider store={store}>
     <ConnectedRouter history={history}>
         <Switch>
             <Route path={'/'} exact={true} component={UikitScreen}/>
+            <Route path={'/kiskutya'} exact={true} component={() => <h3>Kiskutya</h3>}/>
         </Switch>
     </ConnectedRouter>
 </Provider>, root$);

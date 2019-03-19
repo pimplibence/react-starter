@@ -19,13 +19,10 @@ export class Button extends React.Component<any, any> {
     }
 
     private renderTitle() {
-        if (this.props.title) {
-            return <span className="title">
+        return <span className="content">
             {this.props.title}
+            {this.props.children}
         </span>;
-        }
-
-        return null;
     }
 
     private renderSpinner(): React.ReactNode {

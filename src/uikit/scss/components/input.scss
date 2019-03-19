@@ -2,7 +2,6 @@
 
 .uikit-input {
     @extend .position-relative;
-    @extend .mb-3;
 
     &.dirty.validation-error {
         .input-wrapper input {
@@ -32,6 +31,10 @@
                 width: 2rem;
             }
         }
+    }
+
+    .input-wrapper {
+        width: 100%;
     }
 
     .input-wrapper input {

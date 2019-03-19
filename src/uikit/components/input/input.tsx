@@ -1,60 +1,55 @@
 import * as React from 'react';
-import { Field } from '../../../libs/form/field';
-import { arrayToClass } from '../../libs/array-to-class';
-import { randomId } from '../../libs/random-id';
 import { BaseComponent } from '../base.component';
+import { AbstractInput } from './abstract-input';
 
 interface InputProps extends React.DetailedHTMLProps<any, any> {
-    field?: Field;
     type?: 'text' | 'email' | 'password' | 'number';
-    customId?: string;
+    raw?: boolean;
 }
 
-export class Input extends React.Component<InputProps, any> {
-    public field: Field = this.props.field || new Field();
-    public id = this.props.id || randomId();
+export class Input extends AbstractInput<InputProps> {
+    public componentClass = 'uikit-input';
 
-    // trigger re-rendering if values changes
     public componentDidMount(): void {
         this.field.value$.subscribe((value: any) => this.setState({
             value: value
         }));
 
-        this.field.validate$.subscribe(() => this.forceUpdate());
+        super.componentDidMount();
     }
 
     public render(): React.ReactNode {
-        const classes = arrayToClass([this.props.className]);
         const placeholder = this.field.placeholder;
         const type = this.props.type || 'text';
         const value = this.field.getValue();
 
-        return <div
-            className={arrayToClass([
-                'uikit-input',
-                'button-like',
-                this.getValidationClasses()
-            ])}
-        >
+        if (this.props.raw) {
+            return <BaseComponent
+                id={this.id}
+                placeholder={placeholder}
+                value={value}
+                type={type}
+                onChange={(event: any) => this.handleChange(event)}
+                element="input"
+            />;
+        }
+
+        return <div className={this.getClasses()}>
             {this.renderLabel()}
 
-            <div className="input-wrapper">
+            <div className="input-wrapper button-like-group">
                 <BaseComponent
                     id={this.id}
                     placeholder={placeholder}
                     value={value}
                     type={type}
                     onChange={(event: any) => this.handleChange(event)}
-                    className={classes}
+                    className={this.getClasses()}
                     element="input"
                 />
             </div>
 
         </div>;
-    }
-
-    private getValidationClasses(): string {
-        return arrayToClass([this.field.errors.length ? 'validation-error' : '', this.field.dirty ? 'dirty' : '']);
     }
 
     private async handleChange(event) {

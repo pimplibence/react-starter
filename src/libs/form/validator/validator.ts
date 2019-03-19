@@ -8,7 +8,7 @@ export abstract class Validator {
         return (field: Field): ValidatorResponseInterface => {
             return {
                 error: response,
-                valid: field.getValue().toString().length > 0,
+                valid: field.getValue().toString().trim().length > 0,
             };
         };
     };

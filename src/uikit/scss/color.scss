@@ -1,5 +1,16 @@
 @import "variables";
 
+/*
+ Colors
+ ---
+ ClassList:
+
+    .palette--<class-prefix>-<category>-<variant>
+
+ Permutations (sm, md, lg, xl)
+    No Permutations!
+**/
+
 $defined-css-properties: (
     (css-property: 'background-color', class-prefix: 'bgc'),
     (css-property: 'color', class-prefix: 'c'),

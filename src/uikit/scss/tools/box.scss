@@ -21,7 +21,7 @@
     }
 
     @include generate-colors();
-    @extend .border-2;
+    @extend .border-1;
     @extend .border-radius-2;
 
     @include hover-focus-active() {

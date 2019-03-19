@@ -1,7 +1,5 @@
 import * as React from 'react';
-import { Field } from '../../../../libs/form/field';
 import { Button } from '../../../../uikit/components/button/button';
-import { Input } from '../../../../uikit/components/input/input';
 import { arrayToClass } from '../../../../uikit/libs/array-to-class';
 import './buttons.scss';
 
@@ -15,11 +13,11 @@ export class Buttons extends React.Component<any, any> {
     };
 
     public componentDidMount(): void {
-        setTimeout(() => {
+        setInterval(() => {
             this.setState({
                 loading: !this.state.loading
             });
-        }, 3000);
+        }, 1000);
     }
 
     public render(): React.ReactNode {
@@ -39,15 +37,15 @@ export class Buttons extends React.Component<any, any> {
             </div>)}
 
             <div className="row">
-                <div className="col-24">
-
-                    <div className="button-like-group">
-
-                        <Input field={new Field()}/>
-                        <Button title={'Shit'}/>
-
+                <div className="col-24 col-md-12">
+                    <div className="button-like-group m-1">
+                        <Button title="Submit" className="button-primary"/>
+                        <Button title="Submit" className="button-green"/>
+                        <Button className="button-red">
+                            <span className="material-icons">error</span>
+                            <span>&nbsp;Hello Inline Content</span>
+                        </Button>
                     </div>
-
                 </div>
             </div>
 

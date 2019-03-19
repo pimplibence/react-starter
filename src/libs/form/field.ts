@@ -8,6 +8,7 @@ export class Field {
     public id = randomId();
     public value$ = new Subject();
     public validate$ = new Subject();
+    public options$ = new Subject();
     public placeholder: string;
     public label: string;
     public hint: string;
@@ -30,6 +31,10 @@ export class Field {
         if (obj.value !== undefined) {
             this.setValue(obj.value);
         }
+
+        if (obj.options !== undefined) {
+            this.setOptions(obj.options);
+        }
     }
 
     public setParentForm(parent: Form) {
@@ -45,6 +50,11 @@ export class Field {
 
         this.validate$.next();
         return Promise.resolve(response);
+    }
+
+    public async setOptions(options: any[]) {
+        this.options = options;
+        this.options$.next();
     }
 
     public async setValue(value: any) {

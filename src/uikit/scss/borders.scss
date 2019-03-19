@@ -1,5 +1,26 @@
-// $borders-sizes
 @import "./tools/break";
+
+/*
+ Borders
+ ---
+ ClassList:
+
+    .border-1
+    .border-2
+    .border-3
+    .border-4
+    .border-5
+
+ Permutations (sm, md, lg, xl)
+
+    .border-xs-1
+    .border-xs-2
+    .border-xs-3
+    .
+    .
+    .
+    ...
+**/
 
 @each $key, $breakpoint in map-keys($grid-breakpoints) {
     @include media-breakpoint-up($key, $grid-breakpoints) {
