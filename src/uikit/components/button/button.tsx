@@ -7,6 +7,7 @@ export class Button extends React.Component<any, any> {
     public render(): React.ReactNode {
         const classes = arrayToClass([
             'uikit-button',
+            'button-like',
             this.props.loading && 'loading',
             this.props.className
         ]);

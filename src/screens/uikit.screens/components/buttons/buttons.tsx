@@ -1,5 +1,7 @@
 import * as React from 'react';
+import { Field } from '../../../../libs/form/field';
 import { Button } from '../../../../uikit/components/button/button';
+import { Input } from '../../../../uikit/components/input/input';
 import { arrayToClass } from '../../../../uikit/libs/array-to-class';
 import './buttons.scss';
 
@@ -35,6 +37,19 @@ export class Buttons extends React.Component<any, any> {
                 </div>
 
             </div>)}
+
+            <div className="row">
+                <div className="col-24">
+
+                    <div className="button-like-group">
+
+                        <Input field={new Field()}/>
+                        <Button title={'Shit'}/>
+
+                    </div>
+
+                </div>
+            </div>
 
         </div>;
     }

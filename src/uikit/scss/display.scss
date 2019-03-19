@@ -1,6 +1,6 @@
 @import "tools/tools";
 
-$displays: none, inline, inline-block, block, table, table-row, table-cell, flex, inline-flex;
+$displays: none, inline, inherit, inline-block, block, table, table-row, table-cell, flex, inline-flex;
 $positions: relative, absolute, fixed, static;
 
 @each $key, $breakpoint in map-keys($grid-breakpoints) {

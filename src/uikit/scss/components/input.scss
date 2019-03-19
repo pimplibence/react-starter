@@ -1,21 +1,57 @@
 @import "../tools/functions";
 
 .uikit-input {
-    outline: none;
-    width: 100%;
+    @extend .position-relative;
+    @extend .mb-3;
 
-    @include make-button-like-sizes();
+    &.dirty.validation-error {
+        .input-wrapper input {
+            @extend .input-red;
+            padding-right: 2rem;
+        }
 
-    @each $key, $item in $input-like-colors {
-        &.input-#{$key} {
-            @include make-button-like($item);
+        > label {
+            @extend .palette--c-red-3;
+        }
 
-            &::placeholder {
-                color: get-value(map-get-deep($item, 'placeholder-color'), black);
-                opacity: 1;
+        .input-wrapper {
+            @extend .position-relative;
+
+            &::after {
+                @extend .position-absolute;
+                @extend .display-flex;
+                @extend .justify-content-center;
+                @extend .align-items-center;
+                @extend .palette--c-red-3;
+
+                content: '\e000';
+                font-family: Material Icons;
+                top: 0;
+                bottom: 0;
+                right: 0;
+                width: 2rem;
             }
         }
     }
 
-    @extend .input-default;
+    .input-wrapper input {
+        outline: none;
+        width: 100%;
+
+        @include make-button-like-sizes();
+
+        @each $key, $item in $input-like-colors {
+            &.input-#{$key} {
+                @include make-button-like($item);
+
+                &::placeholder {
+                    color: get-value(map-get-deep($item, 'placeholder-color'), black);
+                    opacity: 1;
+                }
+            }
+        }
+
+        @extend .input-default;
+        @extend .size-2;
+    }
 }

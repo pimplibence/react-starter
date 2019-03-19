@@ -12,10 +12,16 @@ export class Label extends React.Component<LabelProps, any> {
     public field: Field = this.props.field || new Field();
     public id = this.props.id || this.field.id;
 
+    public componentDidMount(): void {
+        this.field.validate$.subscribe(() => this.forceUpdate());
+    }
+
     public render(): React.ReactNode {
         const classes = arrayToClass([
             'uikit-label',
             'fw-bold',
+            this.field.errors.length ? 'validation-error' : '',
+            this.field.dirty ? 'dirty' : '',
             this.props.className
         ]);
 

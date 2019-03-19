@@ -2,9 +2,7 @@ import * as React from 'react';
 import { Field } from '../../../../libs/form/field';
 import { Form } from '../../../../libs/form/form';
 import { Validator } from '../../../../libs/form/validator/validator';
-import { FormControl } from '../../../../uikit/components/input/form-control';
 import { Input } from '../../../../uikit/components/input/input';
-import { Label } from '../../../../uikit/components/input/label';
 import { arrayToClass } from '../../../../uikit/libs/array-to-class';
 import './inputs.scss';
 
@@ -16,16 +14,19 @@ export class Inputs extends React.Component<any, any> {
     public form = new Form({
         email: new Field({
             label: 'Simple Field',
-            value: 'example value',
+            value: 'pimplibence@gma',
             placeholder: 'example placeholder',
             validators: [
-                Validator.REQUIRED('Kötelező mező')
+                Validator.REQUIRED('Kötelező mező'),
+                Validator.EMAIL('Nem megfelelő email formátum! Kérlek ne legyél egy ostoba faszparaszt te fasz!'),
             ]
         })
     });
 
     public componentDidMount(): void {
-        this.form.change$.subscribe(() => console.log(this.form.toJSON()));
+        this.form.change$.subscribe(async () => {
+            await this.form.validate();
+        });
     }
 
     public render(): React.ReactNode {
@@ -37,10 +38,7 @@ export class Inputs extends React.Component<any, any> {
                     <div className="row">
                         {variants.map((variant: string) => <div key={variant} className="col-24 col-sm-8 col-md-6">
 
-                            <FormControl field={this.form.field('email')}>
-                                <Label/>
-                                <Input className={`input-${variant} size-${size}`}/>
-                            </FormControl>
+                            <Input className={`input-${variant} size-${size}`} field={this.form.field('email')}/>
 
                         </div>)}
                     </div>

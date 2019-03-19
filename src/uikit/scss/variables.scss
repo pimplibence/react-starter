@@ -285,8 +285,19 @@ $input-like-colors: (
         hover-background-color: none,
         hover-border-color: map-get-deep($palette-colors, primary, 5),
         hover-text-color: map-get-deep($palette-colors, neutral, 6),
-        outline-color: map-get-deep($palette-colors, primary, 3),
+        outline-color: map-get-deep($palette-colors, primary, 2),
         outline-width: map-get-deep($borders-sizes, 2),
         placeholder-color: map-get-deep($palette-colors, neutral, 4),
+    ),
+    red: (
+        background-color: none,
+        border-color: map-get-deep($palette-colors, red, 2),
+        text-color: map-get-deep($palette-colors, red, 3),
+        hover-background-color: none,
+        hover-border-color: map-get-deep($palette-colors, red, 3),
+        hover-text-color: map-get-deep($palette-colors, red, 3),
+        outline-color: map-get-deep($palette-colors, red, 1),
+        outline-width: map-get-deep($borders-sizes, 2),
+        placeholder-color: map-get-deep($palette-colors, red, 1),
     )
 ) !default;

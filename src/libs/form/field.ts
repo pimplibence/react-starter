@@ -23,13 +23,12 @@ export class Field {
         this.placeholder = obj.placeholder || '';
         this.label = obj.label || '';
         this.hint = obj.hint || '';
-        this.value = obj.value || '';
         this.validators = obj.validators || [];
         this.options = obj.options || [];
         this.multi = obj.multi || false;
 
-        if (this.value) {
-            this.dirty = true;
+        if (obj.value !== undefined) {
+            this.setValue(obj.value);
         }
     }
 
@@ -38,8 +37,6 @@ export class Field {
     }
 
     public async validate() {
-        this.dirty = true;
-
         const response = await Promise.all(this.validators.map(async (validator: any) => {
             return validator(this);
         }));
