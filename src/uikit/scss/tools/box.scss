@@ -31,10 +31,17 @@
     @include transition(all);
 }
 
-@mixin make-button-like-sizes() {
+@mixin make-button-like-sizes($selector: null) {
     @each $key, $size in $button-like-sizes {
-        &.size-#{$key} {
-            padding: $size;
+        @if ($selector == null) {
+            &.size-#{$key} {
+                padding: $size;
+            }
+        } @else {
+            &.size-#{$key} #{$selector} {
+                padding: $size;
+            }
         }
+
     }
 }

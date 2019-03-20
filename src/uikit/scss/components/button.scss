@@ -23,7 +23,6 @@
     }
 
     @include make-button-like-sizes();
-
     @extend .button-primary;
     @extend .size-2;
 }

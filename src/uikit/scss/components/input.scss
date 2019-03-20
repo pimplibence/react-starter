@@ -41,8 +41,6 @@
         outline: none;
         width: 100%;
 
-        @include make-button-like-sizes();
-
         @each $key, $item in $input-like-colors {
             &.input-#{$key} {
                 @include make-button-like($item);
@@ -57,4 +55,6 @@
         @extend .input-default;
         @extend .size-2;
     }
+
+    @include make-button-like-sizes('.input-wrapper input');
 }

@@ -44,7 +44,7 @@ export class Input extends AbstractInput<InputProps> {
                     value={value}
                     type={type}
                     onChange={(event: any) => this.handleChange(event)}
-                    className={this.getClasses()}
+                    // className={this.getClasses()}
                     element="input"
                 />
             </div>
