@@ -35,13 +35,26 @@
     @each $key, $size in $button-like-sizes {
         @if ($selector == null) {
             &.size-#{$key} {
-                padding: $size;
+                padding: $size !important;
             }
         } @else {
             &.size-#{$key} #{$selector} {
-                padding: $size;
+                padding: $size !important;
             }
         }
+    }
+}
 
+@mixin make-checkbox-like-sizes($selector: null) {
+    @each $key, $size in $checkbox-like-sizes {
+        @if ($selector == null) {
+            &.size-#{$key} {
+                padding: $size !important;
+            }
+        } @else {
+            &.size-#{$key} #{$selector} {
+                padding: $size !important;
+            }
+        }
     }
 }

@@ -15,7 +15,7 @@ export class Inputs extends React.Component<any, any> {
     public form = new Form({
         email: new Field({
             placeholder: 'Example Placeholder',
-            value: 'lorem ipsum dolor',
+            value: 'pimplibence@gmail.com',
             label: 'Kiskutya Label',
             validators: [
                 Validator.REQUIRED('Kötelező mező!'),
@@ -59,7 +59,9 @@ export class Inputs extends React.Component<any, any> {
 
             <div className="row">
                 <div className="col-24">
-                    <Checkbox field={this.form.field('isEulaAccepted')}/>
+                    <Checkbox field={this.form.field('isEulaAccepted')} className="size-1"/>
+                    <Checkbox field={this.form.field('isEulaAccepted')} className="size-2"/>
+                    <Checkbox field={this.form.field('isEulaAccepted')} className="size-3"/>
                 </div>
             </div>
 

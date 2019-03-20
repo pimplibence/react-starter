@@ -194,6 +194,12 @@ $button-like-sizes: (
     3: ($spacer * .75) ($spacer * 1.25)
 ) !default;
 
+$checkbox-like-sizes: (
+    1: ($spacer * .6),
+    2: ($spacer * .8),
+    3: ($spacer * 1)
+) !default;
+
 $button-like-colors: (
     primary: (
         background-color: map-get-deep($palette-colors, 'primary', 4),
@@ -299,5 +305,28 @@ $input-like-colors: (
         outline-color: map-get-deep($palette-colors, red, 1),
         outline-width: map-get-deep($borders-sizes, 2),
         placeholder-color: map-get-deep($palette-colors, red, 1),
+    )
+) !default;
+
+$checkbox-input-like-colors: (
+    default: (
+        background-color: map-get-deep($palette-colors, 'primary', 4),
+        border-color: map-get-deep($palette-colors, 'primary', 4),
+        text-color: map-get-deep($palette-colors, neutral, 1),
+        hover-background-color: map-get-deep($palette-colors, 'primary', 5),
+        hover-border-color: map-get-deep($palette-colors, 'primary', 5),
+        hover-text-color: map-get-deep($palette-colors, neutral, 1),
+        outline-color: map-get-deep($palette-colors, 'primary', 1),
+        outline-width: map_get($borders-sizes, 2)
+    ),
+    red: (
+        background-color: map-get-deep($palette-colors, red, 2),
+        border-color: map-get-deep($palette-colors, red, 2),
+        text-color: map-get-deep($palette-colors, neutral, 1),
+        hover-background-color: map-get-deep($palette-colors, red, 3),
+        hover-border-color: map-get-deep($palette-colors, red, 3),
+        hover-text-color: map-get-deep($palette-colors, neutral, 1),
+        outline-color: map-get-deep($palette-colors, red, 1),
+        outline-width: map_get($borders-sizes, 2)
     )
 ) !default;

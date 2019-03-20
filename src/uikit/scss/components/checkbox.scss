@@ -1,0 +1,49 @@
+@import "../tools/functions";
+
+.uikit-checkbox {
+    @extend .position-relative;
+    @extend .mb-3;
+    @extend .display-flex;
+    outline: none;
+
+    > label {
+        user-select: none;
+        @extend .flex-fill;
+    }
+
+    .checkbox-wrapper {
+        outline: none;
+        cursor: pointer;
+
+        span {
+            @extend .position-absolute;
+            font-size: $font-size-base;
+            user-select: none;
+        }
+
+        @extend .mr-2;
+        @extend .display-flex;
+        @extend .justify-content-center;
+        @extend .align-items-center;
+        @extend .align-self-start;
+
+        &:not(.checked) {
+            span.checked-state {
+                @extend .display-none;
+            }
+        }
+    }
+
+    @each $key, $item in $checkbox-input-like-colors {
+        &.input-#{$key} {
+            .checkbox-wrapper {
+                @include make-button-like($item);
+            }
+        }
+    }
+
+    @include make-checkbox-like-sizes('.checkbox-wrapper');
+    @extend .size-2;
+    @extend .border-radius-2;
+    @extend .input-default;
+}
