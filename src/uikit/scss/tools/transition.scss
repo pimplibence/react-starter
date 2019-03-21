@@ -1,5 +1,0 @@
-@mixin transition($transitions...) {
-    @each $transition in $transitions {
-        transition: $transition $transition-base;
-    }
-}

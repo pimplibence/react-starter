@@ -1,3 +1,0 @@
-@mixin make-padding($x-variant, $y-variant) {
-    padding: map_get($spacers, $y-variant) map_get($spacers, $x-variant);
-}

@@ -6,13 +6,17 @@ import { Provider } from 'react-redux';
 import { Route, Switch } from 'react-router';
 import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import reduxLogger from 'redux-logger';
-// const env = require('../env.json');
+import reduxThunk from 'redux-thunk';
 import './index.scss';
 import { reducers } from './reducers';
-import { UikitScreen } from './screens/uikit.screens/uikit.screen';
+import { HomeScreen } from './screens/home.screen';
+
+const env = require('../env.json');
 
 const root$ = document.getElementById('application');
 const history = createBrowserHistory();
+
+console.log(env);
 
 const store = createStore(
     combineReducers({
@@ -21,15 +25,15 @@ const store = createStore(
     }),
     compose(
         applyMiddleware(routerMiddleware(history)),
-        applyMiddleware(reduxLogger)
+        applyMiddleware(reduxLogger),
+        applyMiddleware(reduxThunk),
     )
 );
 
 ReactDOM.render(<Provider store={store}>
     <ConnectedRouter history={history}>
         <Switch>
-            <Route path={'/'} exact={true} component={UikitScreen}/>
-            <Route path={'/kiskutya'} exact={true} component={() => <h3>Kiskutya</h3>}/>
+            <Route path={'/'} exact={true} component={HomeScreen}/>
         </Switch>
     </ConnectedRouter>
 </Provider>, root$);

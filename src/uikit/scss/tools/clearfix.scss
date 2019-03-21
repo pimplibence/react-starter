@@ -1,9 +1,0 @@
-@mixin clearfix {
-    overflow: auto;
-
-    &::after {
-        content: "";
-        clear: both;
-        display: table;
-    }
-}
